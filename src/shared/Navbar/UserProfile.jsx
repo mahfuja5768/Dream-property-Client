@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
 import CustomButton from "../../hooks/customButton";
+import { FcDownRight } from "react-icons/fc";
+
 
 const UserProfile = ({ flex, center }) => {
   const { user, logOut } = useAuth();
@@ -40,6 +42,7 @@ const UserProfile = ({ flex, center }) => {
       ) : (
         <>
           <Link to="/login">
+        
             <CustomButton
               backgroundColor="#0F1B4C"
               color="#fff"

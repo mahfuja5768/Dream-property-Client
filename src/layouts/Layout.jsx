@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
                 </label>
               </div>
               <div className="navbar-start  px-2 mx-2 ">
-                <img src={logo} className="w-24 h-24" alt="logo" />
+                <img src={logo} className="w-28" alt="logo" />
                 <Link to="/" className=" cursor-pointer font-bold text-2xl">
                 Dream-Property
                 </Link>

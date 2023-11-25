@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
-import useAxiosPublic from './../hooks/useAxiosPublic';
+import useAxiosPublic from "./../hooks/useAxiosPublic";
 
 const auth = getAuth(app);
 
@@ -69,11 +69,9 @@ const AuthProvider = ({ children }) => {
           })
           .catch((err) => console.log(err));
       } else {
-        //TODO: remove token (if token stored in the client side)
         localStorage.removeItem("access-token");
         setLoading(false);
       }
-    
     });
     return () => {
       return unsubscribe();
