@@ -8,6 +8,7 @@ import { saveUser } from "../../api/auth";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { imageUpload } from "../../api/utils";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import signupPic from '../../assets/images/signup.webp'
 
 const SignUp = () => {
   const { createUser, updateUserProfile, logOut } = useAuth();
@@ -60,44 +61,6 @@ const SignUp = () => {
       });
       reset();
     }
-    // try {
-    //   const imageData = await imageUpload(image);
-    //   const result = createUser(email, password);
-    //   await updateUserProfile(name, imageData?.data?.display_url);
-
-    //   const userInfo = {
-    //     name: data.name,
-    //     email: data.email,
-    //   };
-    //   axiosPublic
-    //   .post("/users", userInfo)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     if (res.data.insertedId) {
-    //       reset();
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "Successfully user created!",
-    //         icon: "success",
-    //         confirmButtonText: "Done",
-    //       });
-    //       // sign up korar por name, profile ase na seta thekate ....
-    //       logOut().then(() => {
-    //         navigate("/login");
-    //       });
-    //     }
-    //   })
-
-    // } catch (error) {
-    //   console.log(error);
-    //   Swal.fire({
-    //     title: "Error!",
-    //     text: `${error.message}`,
-    //     icon: "error",
-    //     confirmButtonText: "Done",
-    //   });
-    //   reset();
-    // }
   };
 
   return (
@@ -107,13 +70,9 @@ const SignUp = () => {
       </Helmet>
       <SectionTitle heading={"Sign Up Now"}></SectionTitle>
       <div className="hero min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left md:w-1/2">
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+        <div className="hero-content flex-col-reverse lg:flex-row-reverse">
+          <div className="text-center lg:text-left ">
+           <img src={signupPic} className="w-full" alt="" />
           </div>
           <div className="card  md:w-1/2 shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">

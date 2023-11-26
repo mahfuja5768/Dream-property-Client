@@ -40,9 +40,9 @@ const Login = () => {
           <title>Dream-Property | Login</title>
         </Helmet>
         <SectionTitle heading={'Login Now'}></SectionTitle>
-        <div className="md:px-24 flex-col lg:flex-row justify-center items-center">
+        <div className="md:px-24 flex-col-reverse lg:flex-row-reverse justify-center items-center">
           <div className="text-center  lg:text-left ">
-            <img src={loginPng} className="w-1/6 mx-auto" alt="" />
+            <img src={loginPng} className="lg:w-1/6 mx-auto" alt="" />
           </div>
           <div className="card shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body">

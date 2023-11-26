@@ -27,6 +27,7 @@ const Navbar = () => {
           All Properties
         </NavLink>
       </li>
+     
       <li>
         <NavLink
           to="/dashboard"
@@ -37,6 +38,18 @@ const Navbar = () => {
           }
         >
           Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/signUp"
+          className={({ isActive }) =>
+            isActive
+              ? " underline decoration-primary bg-transparent hover:text-primary hover:bg-transparent decoration-2 underline-offset-8"
+              : "bg-transparent hover:text-primary hover:bg-transparent"
+          }
+        >
+          Sign up
         </NavLink>
       </li>
     </>
