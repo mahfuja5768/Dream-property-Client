@@ -1,12 +1,27 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
 import CustomButton from "../../hooks/customButton";
-import { FcDownRight } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 
 const UserProfile = ({ flex, center }) => {
   const { user, logOut } = useAuth();
   //   console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          title: "Success!",
+          text: "Successfully log out!",
+          icon: "success",
+          confirmButtonText: "Done",
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div
       className={
@@ -32,8 +47,8 @@ const UserProfile = ({ flex, center }) => {
         </div>
       )}
       {user ? (
-        <Link to="/login">
-        <CustomButton
+        <Link onClick={handleLogout} to="/login">
+        <CustomButton 
           backgroundColor="#0F1B4C"
           color="#fff"
           buttonText="Log out"

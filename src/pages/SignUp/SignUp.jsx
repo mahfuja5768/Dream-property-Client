@@ -10,50 +10,46 @@ import { imageUpload } from "../../api/utils";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile , logOut} = useAuth();
+  const { createUser, updateUserProfile, logOut } = useAuth();
   const navigate = useNavigate();
-  const axiosPublic = useAxiosPublic();
+  // const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
   const onSubmit = async (data) => {
     // console.log(data);
     const name = data.name;
     const email = data.email;
     const password = data.password;
     const image = data.image[0];
-    console.log(image);
+    // console.log(image);
+
     try {
       const imageData = await imageUpload(image);
-      const result = createUser(email, password);
+      const result = await createUser(email, password);
       await updateUserProfile(name, imageData?.data?.display_url);
-      
-      const userInfo = {
-        name: data.name,
-        email: data.email,
-      };
-      axiosPublic
-      .post("/users", userInfo)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          reset();
-          Swal.fire({
-            title: "Success!",
-            text: "Successfully user created!",
-            icon: "success",
-            confirmButtonText: "Done",
-          });
-          // sign up korar por name, profile ase na seta thekate ....
-          logOut().then(() => {
-            navigate("/login");
-          });
-        }
-      })
 
+      // console.log(result.user);
+      const saveUserInfo = await saveUser(result?.user);
+      console.log(saveUserInfo);
+
+      reset();
+      Swal.fire({
+        title: "Success!",
+        text: "Successfully user created!",
+        icon: "success",
+        confirmButtonText: "Done",
+      });
+      reset();
+      navigate("/");
+      // sign up korar por name, profile ase na seta thekate ....
+      //       logOut().then(() => {
+      //         navigate("/login");
+      // }
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -64,6 +60,44 @@ const SignUp = () => {
       });
       reset();
     }
+    // try {
+    //   const imageData = await imageUpload(image);
+    //   const result = createUser(email, password);
+    //   await updateUserProfile(name, imageData?.data?.display_url);
+
+    //   const userInfo = {
+    //     name: data.name,
+    //     email: data.email,
+    //   };
+    //   axiosPublic
+    //   .post("/users", userInfo)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     if (res.data.insertedId) {
+    //       reset();
+    //       Swal.fire({
+    //         title: "Success!",
+    //         text: "Successfully user created!",
+    //         icon: "success",
+    //         confirmButtonText: "Done",
+    //       });
+    //       // sign up korar por name, profile ase na seta thekate ....
+    //       logOut().then(() => {
+    //         navigate("/login");
+    //       });
+    //     }
+    //   })
+
+    // } catch (error) {
+    //   console.log(error);
+    //   Swal.fire({
+    //     title: "Error!",
+    //     text: `${error.message}`,
+    //     icon: "error",
+    //     confirmButtonText: "Done",
+    //   });
+    //   reset();
+    // }
   };
 
   return (
