@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full  bg-[#e7efff] fixed z-10">
-          <Container>
+          <div className="max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
             <div className="navbar">
               <div className="navbar-start  flex-none lg:hidden">
                 <label
@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
               </div>
 
             </div>
-          </Container>
+          </div>
         </div>
         {children}
       </div>
