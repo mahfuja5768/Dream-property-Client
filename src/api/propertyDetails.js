@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import axiosSecure from ".";
 
 export const getDetails = async (id) => {

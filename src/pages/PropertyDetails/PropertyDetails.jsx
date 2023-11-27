@@ -1,20 +1,17 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Container from "../../shared/Container/Container";
-import CustomButton from "../../hooks/customButton";
+import CustomButton from "../../hooks/CustomButton";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { addToWishlists } from "../../api/auth";
-import { useState } from "react";
+import React, { useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-// import AddReview from "./AddReview";
+import AddReview from "./AddReview";
+import AllReviews from "./AllReviews/AllReviews";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
-  const [loading , setLoading]= useState(false)
-
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     propertyImg,
@@ -33,25 +30,24 @@ const PropertyDetails = () => {
 
   const navigate = useNavigate();
 
-
   const handleToAddWishlist = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
       const wishlist = {
         propertyId: _id,
         email: user?.email,
         status: "pending",
       };
 
-     const data = await addToWishlists(wishlist)
-     
-     Swal.fire({
-       title: "Success!",
-       text: "Property added to wishlist successfully!",
-       icon: "success",
-       confirmButtonText: "Done",
+      const data = await addToWishlists(wishlist);
+
+      Swal.fire({
+        title: "Success!",
+        text: "Property added to wishlist successfully!",
+        icon: "success",
+        confirmButtonText: "Done",
       });
-      setLoading(false)
+      setLoading(false);
 
       //TODO: navigate to wishlist
       navigate("/");
@@ -65,43 +61,6 @@ const PropertyDetails = () => {
       });
     }
   };
-
-  // const handleReview = async () => {
-  //   try {
-  //     handleOpen()
-  //     setLoading(true)
-  //     const wishlist = {
-  //       propertyId: _id,
-  //       email: user?.email,
-  //       status: "pending",
-  //     };
-
-  //   //  const data = await addToWishlists(wishlist)
-     
-  //   //  Swal.fire({
-  //   //    title: "Success!",
-  //   //    text: "Property added to wishlist successfully!",
-  //   //    icon: "success",
-  //   //    confirmButtonText: "Done",
-  //   //   });
-  //   //   setLoading(false)
-
-  //     //TODO: navigate to wishlist
-  //     // navigate("/");
-  //   } catch (error) {
-  //     console.log(error);
-  //     Swal.fire({
-  //       title: "Error!",
-  //       text: `${error.message}`,
-  //       icon: "error",
-  //       confirmButtonText: "Done",
-  //     });
-  //   }
-  // };
-
-  
-
-
 
   return (
     <Container>
@@ -135,24 +94,28 @@ const PropertyDetails = () => {
               <img src={agentImg} className="w-16 rounded-full h-16" alt="" />
             </div>
             <div className=" my-6 flex justify-between">
-              {/* <span onClick={handleReview}>
-                {" "}
-                <CustomButton
-                  buttonText="Add Review"
-                ></CustomButton>
-              </span> */}
               <span onClick={handleToAddWishlist}>
                 {" "}
-                <CustomButton
-                  buttonText="Add To Wishlist"
-                ></CustomButton>
+                <CustomButton buttonText="Add To Wishlist"></CustomButton>
               </span>
             </div>
           </div>
         </div>
         <div className="-mt-12">
-          <SectionTitle heading={'Reviews'}></SectionTitle>
-         {/* <AddReview open={open} handleOpen={handleOpen} handleClose={handleClose}></AddReview> */}
+          <SectionTitle heading={"Reviews"}></SectionTitle>
+
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-3">
+            <div className=" lg:col-span-4">
+              <AllReviews propertyId={_id}></AllReviews>
+            </div>
+            <div className=" lg:col-span-2">
+              <AddReview
+                propertyId={_id}
+                agentName={agentName}
+                title={title}
+              ></AddReview>
+            </div>
+          </div>
         </div>
       </div>
     </Container>

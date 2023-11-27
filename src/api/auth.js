@@ -28,7 +28,14 @@ export const clearToken = async () => {
 
 
 export const addToWishlists = async (wishlist) => {
-  console.log(wishlist)
+  // console.log(wishlist)
   const { data } = await axiosSecure.post('/wishlists', wishlist);
   return data;
 };
+
+export const addReviews = async (review) => {
+  // console.log(review)
+  const { data } = await axiosSecure.post('/reviews', review);
+  return data;
+};
+

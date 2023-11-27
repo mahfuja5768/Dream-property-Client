@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
-import CustomButton from "../../hooks/customButton";
+import CustomButton from "../../hooks/CustomButton";
 import Swal from "sweetalert2";
-
 
 const UserProfile = ({ flex, center }) => {
   const { user, logOut } = useAuth();
@@ -48,17 +47,12 @@ const UserProfile = ({ flex, center }) => {
       )}
       {user ? (
         <Link onClick={handleLogout} to="/login">
-        <CustomButton 
-          buttonText="Log out"
-        />
-      </Link>
+          <CustomButton buttonText="Log out" />
+        </Link>
       ) : (
         <>
           <Link to="/login">
-        
-            <CustomButton
-              buttonText="Login"
-            />
+            <CustomButton buttonText="Login" />
           </Link>
         </>
       )}

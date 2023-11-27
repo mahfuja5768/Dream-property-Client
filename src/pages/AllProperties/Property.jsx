@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Avatar, CardActionArea, CardActions, CardHeader } from "@mui/material";
-import CustomButton from "../../hooks/customButton";
+import CustomButton from "../../hooks/CustomButton";
 import { Link } from "react-router-dom";
 
 export default function Property({ property }) {
@@ -65,9 +65,7 @@ export default function Property({ property }) {
               </Typography>
               <CardActions>
                 <Link to={`/details/${_id}`}>
-                  <CustomButton
-                    buttonText="See Details"
-                  ></CustomButton>
+                  <CustomButton buttonText="See Details"></CustomButton>
                 </Link>
               </CardActions>
             </div>

@@ -5,7 +5,7 @@ import Container from "../../shared/Container/Container";
 import Property from "./Property";
 
 const AllProperties = () => {
-  const [properties, refetch] = useProperties();
+  const [properties] = useProperties();
   
   return (
     <Container>
