@@ -9,9 +9,10 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
+import Empty from "../../../components/Empty/Empty";
 
 const AllReviews = ({ propertyId }) => {
-  console.log(propertyId);
+  // console.log(propertyId);
 
   const [allReviews, refetch] = useReviews();
   const [reviews, setReviews] = useState([]);
@@ -20,15 +21,15 @@ const AllReviews = ({ propertyId }) => {
     const selectedProperty = allReviews.filter(
       (item) => item.propertyId === propertyId
     );
-    console.log(selectedProperty);
+    // console.log(selectedProperty);
     setReviews(selectedProperty);
   }, [allReviews]);
 
   const date = new Date(reviews.date);
   const formattedDate = date.toLocaleString();
-  console.log(formattedDate);
+  // console.log(formattedDate);
 
-  console.log(reviews);
+  // console.log(reviews);
   const [controlledSwiper, setControlledSwiper] = useState(null);
 
   return (
@@ -47,7 +48,7 @@ const AllReviews = ({ propertyId }) => {
         <div className="w-1/2 text-center mx-auto">
           {!reviews.length ? (
             <>
-              <p className="text-2xl ">No reviews available!</p>
+             <Empty text={"Reviews"}/>
             </>
           ) : (
             reviews.map((item) => (

@@ -4,6 +4,7 @@ import CustomButton from "../../../hooks/CustomButton";
 import useUserReview from "../../../hooks/useUserReview";
 import Container from "../../../shared/Container/Container";
 import { deleteReviews } from "../../../api/auth";
+import Empty from "../../../components/Empty/Empty";
 
 const MyReviews = () => {
   const [userReviews, refetch] = useUserReview();
@@ -35,6 +36,7 @@ const MyReviews = () => {
   return (
     <Container>
       <SectionTitle heading={"My Reviews"}></SectionTitle>
+      {!userReviews.length && <Empty text={'This'}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {userReviews?.map((item) => (
           <div

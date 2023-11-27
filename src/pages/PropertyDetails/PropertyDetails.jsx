@@ -22,9 +22,10 @@ const PropertyDetails = () => {
     status,
     title,
     _id,
+    email,
     description,
   } = property || {};
-  //   console.log(property);
+    console.log(property);
 
   const { user } = useAuth();
 
@@ -34,11 +35,17 @@ const PropertyDetails = () => {
     try {
       setLoading(true);
       const wishlist = {
-        propertyId: _id,
-        email: user?.email,
+        propertyImg,
+        agentImg,
+        agentEmail:email,
+        agentName,
+        location,
+        priceRange,
         status: "pending",
+        title: title,
+        email: user?.email,
       };
-
+      // console.log(wishlist);
       const data = await addToWishlists(wishlist);
 
       Swal.fire({
@@ -49,8 +56,7 @@ const PropertyDetails = () => {
       });
       setLoading(false);
 
-      //TODO: navigate to wishlist
-      navigate("/");
+      navigate("/dashboard/wishList");
     } catch (error) {
       console.log(error);
       Swal.fire({
