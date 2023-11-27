@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import axiosSecure from ".";
 import useAxiosPublic from "../hooks/useAxiosPublic";
-// import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const axiosPublic = useAxiosPublic();
-// const axiosSecure = useAxiosSecure();
 
 export const saveUser = async (user) => {
   console.log(user);
@@ -15,7 +13,7 @@ export const saveUser = async (user) => {
     email: user?.email,
     role: "guest",
   };
-  const { data } = await axiosPublic.post("/users", currentUser);
+  const { data } = await axiosSecure.post("/users", currentUser);
   console.log(data);
   return data;
 };
@@ -39,3 +37,8 @@ export const addReviews = async (review) => {
   return data;
 };
 
+export const deleteReviews = async (id) => {
+  // console.log(review)
+  const { data } = await axiosSecure.delete(`/reviews/${id}`);
+  return data;
+};
