@@ -44,3 +44,17 @@ export const deleteReviews = async (id) => {
   const { data } = await axiosSecure.delete(`/reviews/${id}`);
   return data;
 };
+
+export const deleteWishlist = async (id) => {
+  // console.log(review)
+  const { data } = await axiosSecure.delete(`/wishlists/${id}`);
+  return data;
+};
+
+
+
+export const postOfferProperty = async (property) => {
+  // console.log(review)
+  const { data } = await axiosSecure.post("offer - properties", property);
+  return data;
+};
