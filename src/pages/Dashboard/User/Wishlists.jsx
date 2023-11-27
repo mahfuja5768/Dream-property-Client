@@ -5,10 +5,12 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Container from "../../../shared/Container/Container";
 import CustomButton from "../../../hooks/CustomButton";
 import Swal from "sweetalert2";
-import { deleteWishlist } from "../../../api/auth";
+import { deleteWishlist, postOfferProperty } from "../../../api/auth";
+import { useState } from "react";
 
 const Wishlists = () => {
   const { user } = useAuth();
+  const [loading, setLoading] =useState(false);
 
   const { refetch, data: userWishlists = [] } = useQuery({
     queryKey: ["userWishlists"],
@@ -54,6 +56,38 @@ const Wishlists = () => {
     }
   };
 
+  const handleOfferProperty = async () => {
+    try {
+      setLoading(true);
+      const offerProperty = {
+        propertyId: propertyId,
+        agentName: agentName,
+        title: title,
+        date: date,
+        reviewDetail: review,
+        email: user?.email,
+        reviewerName: user?.displayName,
+      };
+      // console.log(reviewBody);
+      const data = await postOfferProperty(offerProperty);
+      Swal.fire({
+        title: "Success!",
+        text: "Request send successfully!",
+        icon: "success",
+        confirmButtonText: "Done",
+      });
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: `${error.message}`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
+    }
+  };
+
   return (
     <Container>
       <SectionTitle heading={"My Wishlists"}></SectionTitle>
@@ -81,7 +115,7 @@ const Wishlists = () => {
               {item.priceRange.max}
             </h3>
             <div className="flex justify-between items-center">
-              <span>
+              <span onClick={handleOfferProperty}>
                 <CustomButton buttonText={"Make An Offer"}></CustomButton>
               </span>
               <span onClick={() => handleDelete(item._id)}>
