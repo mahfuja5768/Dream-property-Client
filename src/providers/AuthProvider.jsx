@@ -52,22 +52,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      // console.log("current user", currentUser);
+      console.log("current user", currentUser);
       if (currentUser) {
         //get token and store client
         const userInfo = { email: currentUser.email };
-        // console.log(userInfo);
+        console.log(userInfo);
         axiosPublic
           .post("/jwt", userInfo)
           .then((res) => {
             const token = res.data.token;
-            // console.log(token);
+            console.log(token);
             if (token) {
               localStorage.setItem("access-token", token);
               setLoading(false);
             }
           })
-          .catch((err) => console.log(err));
       } else {
         localStorage.removeItem("access-token");
         setLoading(false);

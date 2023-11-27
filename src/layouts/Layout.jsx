@@ -34,9 +34,9 @@ const Layout = ({ children }) => {
                   </svg>
                 </label>
               </div>
-              <div className="navbar-start  px-2 mx-2 ">
+              <div className="navbar-start">
                 <img src={logo} className="w-28" alt="logo" />
-                <Link to="/" className=" cursor-pointer font-bold text-2xl">
+                <Link to="/" className=" cursor-pointer font-bold md:text-2xl text-xl">
                 Dream-Property
                 </Link>
               </div>

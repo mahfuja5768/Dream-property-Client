@@ -5,8 +5,8 @@ const SectionTitle = ({ heading }) => {
   return (
     <Container>
       {" "}
-      <div className="max-w-screen-xl mx-auto text-center md:w-3/12 my-12 ">
-        <h3 className="text-2xl md:text-3xl font-bold uppercase border-y-4 rounded-t-full bg-secondary border-primary py-3 px-4 lg:py-6 lg:px-6 mt-2">
+      <div className="max-w-screen-xl mx-auto text-center md:w-3/12 my-12 mt-28">
+        <h3 className="text-2xl md:text-2xl font-bold uppercase border-y-4 rounded-t-full bg-secondary border-primary py-3 px-4 lg:py-6 lg:px-6 mt-2">
           {heading}
         </h3>
       </div>

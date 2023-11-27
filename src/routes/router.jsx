@@ -5,6 +5,8 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import AllProperties from "../pages/AllProperties/AllProperties";
 import PrivateRoute from "./PrivateRoute";
+import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
+import { getDetails } from "../api/propertyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,11 @@ export const router = createBrowserRouter([
       {
         path: "/allProperties",
         element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>
+      },
+      {
+        path: "/details/:id",
+        element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>,
+        loader: ({ params }) => getDetails(params.id),
       },
     ],
 },

@@ -49,8 +49,6 @@ const UserProfile = ({ flex, center }) => {
       {user ? (
         <Link onClick={handleLogout} to="/login">
         <CustomButton 
-          backgroundColor="#0F1B4C"
-          color="#fff"
           buttonText="Log out"
         />
       </Link>
@@ -59,8 +57,6 @@ const UserProfile = ({ flex, center }) => {
           <Link to="/login">
         
             <CustomButton
-              backgroundColor="#0F1B4C"
-              color="#fff"
               buttonText="Login"
             />
           </Link>
