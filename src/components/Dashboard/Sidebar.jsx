@@ -23,7 +23,7 @@ const Sidebar = () => {
     setActive(!isActive);
   };
 
-  const { user ,logOut } = useAuth();
+  const { user, logOut } = useAuth();
   //   console.log(user);
 
   const handleLogout = () => {
@@ -65,14 +65,17 @@ const Sidebar = () => {
             <div className="w-full hidden md:flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
               <img src={logo} alt="" />
             </div>
-            <h2 className="md:text-2xl text-xl font-bold text-primary">Welcome to dashboard, <span className="text-blue-900">{user?.displayName}</span></h2>
+            <h2 className="md:text-2xl text-xl font-bold text-primary">
+              Welcome to dashboard,{" "}
+              <span className="text-blue-900">{user?.displayName}</span>
+            </h2>
           </div>
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               <MenuItem
-                icon={FaHouseChimney }
+                icon={FaHouseChimney}
                 label={"Home"}
                 address="/"
               ></MenuItem>

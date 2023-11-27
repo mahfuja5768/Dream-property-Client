@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import axiosSecure from ".";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAuth from "../hooks/useAuth";
+// import useAxiosPublic from "../hooks/useAxiosPublic";
 
-const axiosPublic = useAxiosPublic();
+// const axiosPublic = useAxiosPublic();
+
 
 export const saveUser = async (user) => {
   console.log(user);
