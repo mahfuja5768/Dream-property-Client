@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import Empty from '../../../components/Empty/Empty';
 import axiosSecure from '../../../api';
 import CustomButton from '../../../hooks/CustomButton';
+import { Link } from 'react-router-dom';
 
 const PropertyBrought = () => {
     const { user } = useAuth();
@@ -43,7 +44,7 @@ const PropertyBrought = () => {
                 />
                 <h3 className="text-xl">Agent Name: {item.agentName}</h3>
               </div>
-              <h3 className="text-lg font-medium">Status: {item.status}</h3>
+              <h3 className={`${item?.status === 'pending' ? 'text-red-500 font-semibold'  : 'text-green-700 font-semibold'}`}>Status: <span className='text-lg font-bold'>{item.status}</span></h3>
               <h3 className=" mb-3">
                 <span className="">Price:</span> ${item?.priceRange?.min}-
                 {item?.priceRange?.max}
@@ -51,9 +52,9 @@ const PropertyBrought = () => {
               {
                 item.status === 'accepted' &&
                 <div className="flex justify-end items-center">
-                <span >{/* onClick={() => handlePay(item)} */}
+                <Link to='/dashboard/payment' >{/* onClick={() => handlePay(item)} */}
                   <CustomButton buttonText={"Pay"}></CustomButton>
-                </span>
+                </Link>
               </div>
               }
             </div>

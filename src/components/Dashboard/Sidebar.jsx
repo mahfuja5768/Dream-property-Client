@@ -6,18 +6,18 @@ import CustomButton from "../../hooks/CustomButton";
 import { FaHouseChimney } from "react-icons/fa6";
 
 import MenuItem from "./MenuItem";
-import {
-  FaUser,
-  FaList,
-  FaProductHunt,
-  FaFaceLaughBeam,
-} from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useGetRole from "../../hooks/useGetRole";
+import UserMenu from "./UserMenu";
+import AgentMenu from "./AgentMenu";
+import AdminMenu from "./AdminMenu";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
-
+  const [userRole,loading ] = useGetRole();
+console.log(userRole)
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -38,6 +38,10 @@ const Sidebar = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  // if(loading){
+  //   return <p>loooooooo</p>
+  // }
 
   return (
     <>
@@ -84,21 +88,10 @@ const Sidebar = () => {
                 label={"My Profile"}
                 address="/dashboard/myProfile"
               ></MenuItem>
-              <MenuItem
-                icon={FaList}
-                label={"My WishList"}
-                address="/dashboard/wishList"
-              ></MenuItem>
-              <MenuItem
-                icon={FaProductHunt}
-                label={"Property Brought"}
-                address="/dashboard/propertyBrought"
-              ></MenuItem>
-              <MenuItem
-                icon={FaFaceLaughBeam}
-                label={"My Reviews"}
-                address="/dashboard/reviews"
-              ></MenuItem>
+
+              {userRole === "guest" && <UserMenu></UserMenu>}
+              {userRole === "agent" && <AgentMenu></AgentMenu>}
+              {userRole === "admin" && <AdminMenu></AdminMenu>}
             </nav>
           </div>
         </div>

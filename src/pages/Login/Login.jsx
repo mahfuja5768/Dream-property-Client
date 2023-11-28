@@ -39,7 +39,7 @@ const Login = () => {
         <Helmet>
           <title>Dream-Property | Login</title>
         </Helmet>
-        <SectionTitle heading={'Login Now'}></SectionTitle>
+        <SectionTitle heading={"Login Now"}></SectionTitle>
         <div className="md:px-24 flex-col-reverse lg:flex-row-reverse justify-center items-center">
           <div className="text-center  lg:text-left ">
             <img src={loginPng} className="lg:w-1/6 mx-auto" alt="" />

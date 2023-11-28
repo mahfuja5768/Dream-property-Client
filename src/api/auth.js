@@ -54,4 +54,9 @@ export const postOfferProperty = async (property) => {
   return data;
 };
 
-
+export const makeOfferDetail = async (id) => {
+  // console.log(user)
+  const { data } = await axiosSecure.get(`/properties2/${id}`);
+  console.log("ddd-------->", data);
+  return data;
+};

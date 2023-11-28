@@ -6,3 +6,5 @@ export const getDetails = async (id) => {
   const { data } = await axiosSecure.get(`/properties/${id}`);
   return data;
 };
+
+

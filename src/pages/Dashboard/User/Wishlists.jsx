@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { deleteWishlist, postOfferProperty } from "../../../api/auth";
 import { useState } from "react";
 import Empty from "../../../components/Empty/Empty";
+import { Link } from "react-router-dom";
 
 const Wishlists = () => {
   const { user } = useAuth();
@@ -124,9 +125,9 @@ const Wishlists = () => {
               {item?.priceRange?.max}
             </h3>
             <div className="flex justify-between items-center">
-              <span onClick={() => handleOfferProperty(item)}>
-                <CustomButton buttonText={"Make An Offer"}></CustomButton>
-              </span>
+              <Link to={`/dashboard/make-offer/${item._id}`} className="w-full">
+                  <CustomButton buttonText={"Make An Offer"}></CustomButton>
+              </Link>
               <span onClick={() => handleDelete(item._id)}>
                 <CustomButton buttonText={"Remove"}></CustomButton>
               </span>

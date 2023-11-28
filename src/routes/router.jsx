@@ -12,6 +12,16 @@ import UserProfilePage from "../pages/Dashboard/User/UserProfilePage";
 import Wishlists from "../pages/Dashboard/User/Wishlists";
 import PropertyBrought from "../pages/Dashboard/User/PropertyBrought";
 import MyReviews from "../pages/Dashboard/User/MyReviews";
+import AddedProperties from "../pages/Dashboard/Agent/AddedProperties";
+import AgentRoute from "./AgentRoute";
+import SoldProperties from "../pages/Dashboard/Agent/SoldProperties";
+import RequestedProperties from "../pages/Dashboard/Agent/RequestedProperties";
+import AdminRoute from "./AdminRoute";
+import ManageProperties from "../pages/Dashboard/Admin/ManageProperties";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import ManageReviews from "./../pages/Dashboard/Admin/ManageReviews";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import MakeOffer from "../pages/Dashboard/User/MakeOffer";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +74,62 @@ export const router = createBrowserRouter([
       {
         path: "reviews",
         element: <MyReviews></MyReviews>,
+      },
+      {
+        path: "make-offer/:id",
+        element: <MakeOffer></MakeOffer>
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
+        path: "addedProperties",
+        element: (
+          <AgentRoute>
+            <AddedProperties></AddedProperties>
+          </AgentRoute>
+        ),
+      },
+      {
+        path: "soldProperties",
+        element: (
+          <AgentRoute>
+            <SoldProperties></SoldProperties>
+          </AgentRoute>
+        ),
+      },
+      {
+        path: "requestedProperties",
+        element: (
+          <AgentRoute>
+            <RequestedProperties></RequestedProperties>
+          </AgentRoute>
+        ),
+      },
+      {
+        path: "manageProperties",
+        element: (
+          <AdminRoute>
+            <ManageProperties></ManageProperties>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageUsers",
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageReviews",
+        element: (
+          <AdminRoute>
+            <ManageReviews></ManageReviews>
+          </AdminRoute>
+        ),
       },
     ],
   },
