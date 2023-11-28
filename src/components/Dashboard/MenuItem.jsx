@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const MenuItem = ({ label, address, icon: Icon }) => {
+  // const [isActive, setActive] = useState(true);
   return (
     <NavLink
       to={address}

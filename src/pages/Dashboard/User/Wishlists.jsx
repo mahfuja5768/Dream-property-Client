@@ -18,7 +18,7 @@ const Wishlists = () => {
     queryKey: ["userWishlists"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-wishlists/${user?.email}`);
-      // console.log(res.data);
+      console.log(res.data);
       return res.data;
     },
   });
@@ -32,43 +32,10 @@ const Wishlists = () => {
     priceRange,
     status,
     title,
+    propertyId,
     _id,
     description,
   } = userWishlists || {};
-
-  const handleOfferProperty = async (item) => {
-    try {
-      setLoading(true);
-      const offerProperty = {
-        propertyImg: item.propertyImg,
-        agentImg: item.agentImg,
-        agentName: item.agentName,
-        agentEmail: item.agentEmail,
-        location: item.location,
-        priceRange: item.priceRange,
-        status: "pending",
-        title: item.title,
-        buyerEmail: user?.email,
-      };
-      console.log(offerProperty);
-      const data = await postOfferProperty(offerProperty);
-      Swal.fire({
-        title: "Success!",
-        text: "Request send successfully!",
-        icon: "success",
-        confirmButtonText: "Done",
-      });
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        title: "Error!",
-        text: `${error.message}`,
-        icon: "error",
-        confirmButtonText: "Done",
-      });
-    }
-  };
 
   const handleDelete = async (id) => {
     // console.log(id)
@@ -125,7 +92,7 @@ const Wishlists = () => {
               {item?.priceRange?.max}
             </h3>
             <div className="flex justify-between items-center">
-              <Link to={`/dashboard/make-offer/${item._id}`} className="w-full">
+              <Link to={`/dashboard/make-offer/${item.propertyId}`} className="w-full">
                   <CustomButton buttonText={"Make An Offer"}></CustomButton>
               </Link>
               <span onClick={() => handleDelete(item._id)}>

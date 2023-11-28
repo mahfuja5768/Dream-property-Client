@@ -52,7 +52,7 @@ export default function Property({ property }) {
               Location: {location}
             </Typography>
             <Typography gutterBottom variant="h7" component="div">
-              Price: {priceRange.min} - {priceRange.max}
+              Price: ({priceRange.min} - {priceRange.max})$
             </Typography>
             Agent Info:
             <CardHeader

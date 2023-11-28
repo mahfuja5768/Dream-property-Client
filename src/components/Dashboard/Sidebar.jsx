@@ -15,7 +15,7 @@ import AgentMenu from "./AgentMenu";
 import AdminMenu from "./AdminMenu";
 
 const Sidebar = () => {
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(true);
   const [userRole,loading ] = useGetRole();
 console.log(userRole)
   // Sidebar Responsive Handler

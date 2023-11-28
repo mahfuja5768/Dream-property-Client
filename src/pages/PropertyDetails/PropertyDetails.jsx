@@ -11,6 +11,8 @@ import AllReviews from "./AllReviews/AllReviews";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
+  console.log(property);
+
   const [loading, setLoading] = useState(false);
 
   const {
@@ -25,7 +27,6 @@ const PropertyDetails = () => {
     email,
     description,
   } = property || {};
-    console.log(property);
 
   const { user } = useAuth();
 
@@ -37,10 +38,11 @@ const PropertyDetails = () => {
       const wishlist = {
         propertyImg,
         agentImg,
-        agentEmail:email,
+        agentEmail: email,
         agentName,
         location,
         priceRange,
+        propertyId: _id,
         status: "pending",
         title: title,
         email: user?.email,
@@ -91,8 +93,8 @@ const PropertyDetails = () => {
             </h3>
 
             <h3 className="text-xl font-bold mb-3">
-              <span className="">Price:</span> ${priceRange.min}-
-              {priceRange.max}
+              <span className="">Price:</span> ({priceRange.min}-
+              {priceRange.max})$
             </h3>
             <p>{description}</p>
             <div className="flex flex-row-reverse justify-end items-center gap-3">
