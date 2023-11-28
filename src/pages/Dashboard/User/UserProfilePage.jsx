@@ -6,21 +6,24 @@ import useGetRole from "../../../hooks/useGetRole";
 import CustomButton from "../../../hooks/CustomButton";
 
 /* ----- */
- /* eslint-disable react/prop-types */
- import * as React from "react";
- import Box from "@mui/material/Box";
- import Typography from "@mui/material/Typography";
- import Modal from "@mui/material/Modal";
- import TextField from "@mui/material/TextField";
- import Swal from "sweetalert2";
+/* eslint-disable react/prop-types */
+import * as React from "react";
+import { Input, Button } from "@mui/material";
+
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import { imageUpload } from "../../../api/utils";
 
 const UserProfilePage = () => {
-    const { user } = useAuth();
-   const [userRole, refetch] = useGetRole()
-  console.log(userRole)
+  const { user, updateUserProfile } = useAuth();
+  const [userRole, refetch] = useGetRole();
+  console.log(userRole);
 
-  const [loading, setLoading] = React.useState(false);
-  const [review, setReview] = React.useState(" ");
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,32 +40,40 @@ const UserProfilePage = () => {
     p: 4,
   };
 
-  const handleReviewChange = (event) => {
-    setReview(event.target.value);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState(null);
+
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleImage = (event) => {
+    const selectedImage = event.target.files[0];
+    setImage(selectedImage);
   };
 
   const handleSubmit = async () => {
+    // console.log("Name:", name);
+    // console.log("Image:", image);
     try {
       setLoading(true);
-      console.log(review);
-      const reviewBody = {
-        reviewDetail: review,
-        email: user?.email,
-        reviewerName: user?.displayName,
-      };
-      // console.log(reviewBody);
-    //   const data = await addReviews(reviewBody);
 
-      setReview("");
+      const imageData = await imageUpload(image);
+      await updateUserProfile(name, imageData?.data?.display_url);
+
       handleClose();
-      refetch()
+
       Swal.fire({
         title: "Success!",
-        text: "Review added successfully!",
+        text: "Successfully profile updated!",
         icon: "success",
         confirmButtonText: "Done",
       });
+
+      setName("");
+      setImage("");
       setLoading(false);
+      refetch();
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -71,15 +82,18 @@ const UserProfilePage = () => {
         icon: "error",
         confirmButtonText: "Done",
       });
+      setName("");
+      setImage("");
+      setLoading(false);
     }
   };
 
   return (
-    <Container >
-      <div className="card mx-auto w-96 bg-secondary shadow-xl">
-        <figure className="-mt-12" >
+    <Container>
+      <div className="card mx-auto md:w-96 bg-secondary shadow-xl">
+        <figure className="-mt-12">
           <img
-            src={user?.photoURL} 
+            src={user?.photoURL}
             alt="Shoes"
             className=" w-40 h-40 rounded-full"
           />
@@ -88,7 +102,9 @@ const UserProfilePage = () => {
           <h2 className="card-title">Your name: {user?.displayName}</h2>
           <p className="text-lg font-medium">Role: {userRole}</p>
           <div className="card-actions">
-            <span onClick={handleOpen}><CustomButton buttonText={'Edit Profile'}></CustomButton></span>
+            <span onClick={handleOpen}>
+              <CustomButton buttonText={"Edit Profile"}></CustomButton>
+            </span>
           </div>
         </div>
       </div>
@@ -103,32 +119,31 @@ const UserProfilePage = () => {
             Update your profile
           </Typography>
           <TextField
-            onChange={handleReviewChange}
-            value={review}
+            onChange={handleName}
+            value={name}
+            defaultValue={`${user?.displayName}`}
             style={{ margin: "20px 0" }}
             id="outlined-multiline-flexible"
-            label="Your Name"
+            label="Set your name"
             multiline
             maxRows={4}
           />
-          <TextField
-            onChange={handleReviewChange}
-            value={review}
-            style={{ margin: "20px 0" }}
-            id="outlined-multiline-flexible"
-            label="Your Name"
-            multiline
-            maxRows={4}
+          <Input
+            onChange={handleImage}
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            className="w-full file-input-warning"
+            placeholder="Choose an image file"
+            required
           />
-          <div className=" my-6 flex justify-between">
+          <div className="my-6 flex justify-between">
             <span onClick={handleSubmit}>
-              {" "}
-              <CustomButton buttonText="Submit"></CustomButton>
+              <CustomButton buttonText={"Submit"}></CustomButton>
             </span>
-
             <span onClick={handleClose}>
-              {" "}
-              <CustomButton buttonText="Cancel"></CustomButton>
+              <CustomButton buttonText={"Cancel"}></CustomButton>
             </span>
           </div>
         </Box>

@@ -22,7 +22,7 @@ export default function Property({ property }) {
   console.log(property);
   return (
     <div>
-      <Card elevation={20} sx={{ maxWidth: 460 }}>
+      <Card elevation={20} >
         <CardActionArea>
           <CardMedia
             style={{

@@ -1,22 +1,20 @@
-/* eslint-disable react/prop-types */
-import useReviews from "../../../hooks/useReviews";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import Empty from "../../../components/Empty/Empty";
+import useReviews from "../../../hooks/useReviews";
 
 const AllReviews = ({ propertyId }) => {
   // console.log(propertyId);
 
   const [allReviews, refetch] = useReviews();
   const [reviews, setReviews] = useState([]);
-
+  // console.log(allReviews);
   useEffect(() => {
     const selectedProperty = allReviews.filter(
       (item) => item.propertyId === propertyId
@@ -25,30 +23,27 @@ const AllReviews = ({ propertyId }) => {
     setReviews(selectedProperty);
   }, [allReviews]);
 
-  const date = new Date(reviews.date);
-  const formattedDate = date.toLocaleString();
-  // console.log(formattedDate);
-
-  // console.log(reviews);
-  const [controlledSwiper, setControlledSwiper] = useState(null);
 
   return (
     <div>
       <Swiper
-        slidesPerView={1}
         spaceBetween={30}
-        loop={true}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         <div className="w-1/2 text-center mx-auto">
           {!reviews.length ? (
             <>
-             <Empty text={"Reviews"}/>
+              <Empty text={"Reviews"} />
             </>
           ) : (
             reviews.map((item) => (

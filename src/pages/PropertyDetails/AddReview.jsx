@@ -51,6 +51,7 @@ export default function AddReview({ propertyId, agentName, title }) {
         reviewDetail: review,
         email: user?.email,
         reviewerName: user?.displayName,
+        reviewerImg: user?.photoURL,
       };
       // console.log(reviewBody);
       const data = await addReviews(reviewBody);
