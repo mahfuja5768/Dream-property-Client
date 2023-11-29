@@ -13,7 +13,6 @@ const AllProperties = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-9 justify-center items-center">
         {properties?.map((property) => (
           <Property key={property._id} property={property}></Property>
-          // <p key={property._id}>{property}</p>
         ))}
       </div>
     </Container>
