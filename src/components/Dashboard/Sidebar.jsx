@@ -13,11 +13,13 @@ import useGetRole from "../../hooks/useGetRole";
 import UserMenu from "./UserMenu";
 import AgentMenu from "./AgentMenu";
 import AdminMenu from "./AdminMenu";
+import Loading from "../../shared/Loading/Loading";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(true);
-  const [userRole,loading ] = useGetRole();
-console.log(userRole)
+  const [userRole, loading] = useGetRole();
+  console.log(userRole);
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -40,7 +42,7 @@ console.log(userRole)
   };
 
   // if(loading){
-  //   return <p>loooooooo</p>
+  //   return <Loading/>
   // }
 
   return (
@@ -67,12 +69,17 @@ console.log(userRole)
         <div>
           <div>
             <div className="w-full hidden md:flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
-              <img src={logo} alt="" />
+              <Link to="/">
+                {" "}
+                <img src={logo} alt="" />
+              </Link>{" "}
             </div>
-            <h2 className="md:text-2xl text-xl font-bold text-primary">
-              Welcome to dashboard,{" "}
-              <span className="text-blue-900">{user?.displayName}</span>
-            </h2>
+            <Link to="/">
+              <h2 className="md:text-2xl text-xl font-bold text-primary">
+                Welcome to dashboard,{" "}
+                <span className="text-blue-900">{user?.displayName}</span>
+              </h2>
+            </Link>
           </div>
 
           {/* Nav Items */}

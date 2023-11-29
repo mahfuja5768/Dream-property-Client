@@ -26,12 +26,13 @@ import AddNewProperty from "../pages/Dashboard/Agent/AddNewProperty";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import UpdateProperty from "../pages/Dashboard/Agent/UpdateProperty";
 import { updateProperty } from "../api/auth";
+import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -136,6 +137,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <ManageProperties></ManageProperties>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "advertiseProperties",
+        element: (
+          <AdminRoute>
+            <AdvertiseProperty></AdvertiseProperty>
           </AdminRoute>
         ),
       },

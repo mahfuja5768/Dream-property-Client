@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const MenuItem = ({ label, address, icon: Icon }) => {
-  // const [isActive, setActive] = useState(true);
+  const [isActive, setActive] = useState(false);
   return (
     <NavLink
       to={address}

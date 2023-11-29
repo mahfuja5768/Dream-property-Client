@@ -1,4 +1,5 @@
 import {
+  FaAd,
   FaList,
   FaProductHunt,
   FaRegQuestionCircle,
@@ -14,6 +15,11 @@ const AdminMenu = () => {
         icon={FaList}
         label={"Manage Properties"}
         address="/dashboard/manageProperties"
+      ></MenuItem>
+      <MenuItem
+        icon={FaAd}
+        label={"Advertise Properties"}
+        address="/dashboard/advertiseProperties"
       ></MenuItem>
       <MenuItem
         icon={FaUserAlt}

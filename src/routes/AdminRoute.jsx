@@ -2,14 +2,13 @@
 import { Navigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useGetRole from "../hooks/useGetRole";
+import Loading from "../shared/Loading/Loading";
 const AdminRoute = ({ children }) => {
   const { user,loading } = useAuth();
   const [userRole] = useGetRole();
   if (loading) {
     return (
-      <div className="flex justify-center items-center">
-        <span className="loading loading-infinity loading-lg "></span>
-      </div>
+      <Loading/>
     );
   }
   if (userRole === "admin") {
