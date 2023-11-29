@@ -3,11 +3,10 @@ import axiosSecure from "../../../api";
 import useAuth from "../../../hooks/useAuth";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import CustomButton from "../../../hooks/CustomButton";
-import { useState } from "react";
 import Swal from "sweetalert2";
 
 const SoldProperties = () => {
+  const {user} =useAuth()
   const { data: properties } = useQuery({
     queryKey: ["properties"],
     queryFn: async () => {
@@ -37,7 +36,7 @@ const SoldProperties = () => {
           </thead>
           <tbody>
             {properties?.map((item, idx) => (
-              <tr>
+              <tr key={item._id}>
                 <th>{idx + 1}</th>
                 <th>{item.title}</th>
                 <td>{item.location}</td>

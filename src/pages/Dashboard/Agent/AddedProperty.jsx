@@ -6,9 +6,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Avatar, CardActionArea, CardActions, CardHeader } from "@mui/material";
 import { Link } from "react-router-dom";
-import CustomButton from "../../../hooks/CustomButton";
 import Swal from "sweetalert2";
 import axiosSecure from "../../../api";
+import CustomButton from "../../../hooks/customButton";
 
 export default function AddedProperty({refetch, property }) {
   const {
@@ -92,8 +92,8 @@ export default function AddedProperty({refetch, property }) {
               {status === "rejected" && (
                 ""
               ) } {
-                status === 'accepted'? <CardActions>
-                  <Link to={`/details/${_id}`}>
+                status === 'verified'? <CardActions>
+                  <Link to={`/dashboard/updateProperty/${_id}`}>
                     <CustomButton buttonText="Update Now"></CustomButton>
                   </Link>
                 </CardActions> : 'It is not verify'

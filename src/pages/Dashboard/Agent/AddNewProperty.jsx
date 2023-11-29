@@ -22,26 +22,23 @@ const AddNewProperty = () => {
     const min = parseInt(form.min.value);
     const max = parseInt(form.max.value);
     const formData = new FormData(form);
-    console.log(typeof min);
-    const agentImge = formData.get("agentImg");
     const propertyImge = formData.get("propertyImg");
 
     try {
       setLoading(true);
 
-      const agentImgData = await imageUpload(agentImge);
       const propertyImgData = await imageUpload(propertyImge);
       const propertyImg = propertyImgData?.data?.display_url;
-      const agentImg = agentImgData?.data?.display_url;
 
       const property = {
         title,
         location,
         propertyImg,
-        agentImg,
+        agentImg:user?.photoURL,
         priceRange: { min, max },
         agentName: user?.displayName,
         agentEmail: user?.email,
+
       };
       console.log(property);
       const data = await axiosSecure.post("/agent-properties", property);
@@ -136,19 +133,6 @@ const AddNewProperty = () => {
                   readOnly
                   className="w-full px-3 py-2 border rounded-md border-secondary focus:outline-primary bg-secondary text-gray-900"
                 />{" "}
-              </div>
-              <div className="form-control my-3">
-                <label className="label">
-                  <span className="label-text">Choose Agent Photo </span>
-                </label>
-                <input
-                  type="file"
-                  required
-                  id="image"
-                  name="agentImg"
-                  accept="image/*"
-                  className="w-full cursor-pointer file-input-warning"
-                />
               </div>
               <div className="form-control my-3">
                 <label className="label">

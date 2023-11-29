@@ -57,7 +57,14 @@ export const postOfferProperty = async (property) => {
 export const makeOfferDetail = async (id) => {
   // console.log(user)
   const { data } = await axiosSecure.get(`/properties2/${id}`);
-  console.log("ddd-------->", data);
+  // console.log("ddd-------->", data);
+  return data;
+};
+
+export const updateProperty = async (id) => {
+  // console.log(user)
+  const { data } = await axiosSecure.get(`/agent-properties/${id}`);
+  // console.log("ddd-------->", data);
   return data;
 };
 

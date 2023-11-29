@@ -24,6 +24,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import MakeOffer from "../pages/Dashboard/User/MakeOffer";
 import AddNewProperty from "../pages/Dashboard/Agent/AddNewProperty";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import UpdateProperty from "../pages/Dashboard/Agent/UpdateProperty";
+import { updateProperty } from "../api/auth";
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +97,15 @@ export const router = createBrowserRouter([
             <AddedProperties></AddedProperties>
           </AgentRoute>
         ),
+      },
+      {
+        path: "updateProperty/:id",
+        element: (
+          <AgentRoute>
+            <UpdateProperty></UpdateProperty>
+          </AgentRoute>
+        ),
+        loader: ({ params }) => updateProperty(params.id),
       },
       {
         path: "addNewProperty",
