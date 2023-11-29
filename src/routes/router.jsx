@@ -23,11 +23,13 @@ import ManageReviews from "./../pages/Dashboard/Admin/ManageReviews";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import MakeOffer from "../pages/Dashboard/User/MakeOffer";
 import AddNewProperty from "../pages/Dashboard/Agent/AddNewProperty";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
