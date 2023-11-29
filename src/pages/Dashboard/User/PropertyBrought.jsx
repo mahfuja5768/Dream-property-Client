@@ -26,7 +26,7 @@ const PropertyBrought = () => {
 
   return (
     <Container>
-      <SectionTitle heading={"My Wishlists"}></SectionTitle>
+      <SectionTitle heading={"My Brought Properties"}></SectionTitle>
       {!offerProperties?.length && <Empty text={"This"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {offerProperties?.map((item) => (

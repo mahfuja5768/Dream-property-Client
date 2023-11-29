@@ -1,12 +1,16 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import axiosSecure from "../../../api";
 import useAuth from "../../../hooks/useAuth";
 
 const CheckoutForm = () => {
   const property = useLoaderData();
+  const {id} = useParams()
+  const title = property[0].title;
+  const location = property[0].location;
+  const agentEmail = property[0].agentEmail;
   const broughtPropertyId = property[0].propertyId;
   // console.log(broughtPropertyId);
   const price = property[0]?.offerAmount;
@@ -73,22 +77,28 @@ const CheckoutForm = () => {
 
         const payment = {
           email: user?.email,
+          name:user?.displayName,
+          agentEmail,
+          title,
+          location,
           transactionId: paymentIntent.id,
           price,
           data: new Date(),
           broughtPropertyId,
+
         };
         const res2 = await axiosSecure.post("/payments", payment);
         console.log("payment saved", res2.data);
 
-        if (res2.data?.deletedCount) {
+          const updateStatus = await axiosSecure.patch(
+            `/brought-property-status/${id}`
+          );
           Swal.fire({
             title: "Success!",
             text: "Thank you for the payment!",
             icon: "success",
             confirmButtonText: "Done",
           });
-        }
       }
     }
   };

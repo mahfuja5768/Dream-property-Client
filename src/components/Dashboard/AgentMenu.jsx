@@ -1,4 +1,4 @@
-import { FaList, FaProductHunt, FaRegQuestionCircle } from "react-icons/fa";
+import { FaList, FaPlus, FaProductHunt, FaRegQuestionCircle } from "react-icons/fa";
 import { FaFaceLaughBeam } from "react-icons/fa6";
 import MenuItem from "./MenuItem";
 
@@ -6,10 +6,17 @@ const AgentMenu = () => {
   return (
     <>
       <MenuItem
+        icon={FaPlus}
+        label={"Add New Properties"}
+        address="/dashboard/addNewProperty"
+      ></MenuItem>
+
+      <MenuItem
         icon={FaList}
         label={"My Added Properties"}
         address="/dashboard/addedProperties"
       ></MenuItem>
+
       <MenuItem
         icon={FaProductHunt}
         label={"Sold Properties"}

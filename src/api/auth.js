@@ -60,3 +60,4 @@ export const makeOfferDetail = async (id) => {
   console.log("ddd-------->", data);
   return data;
 };
+

@@ -66,6 +66,7 @@ const MakeOffer = () => {
         agentEmail: email,
         status: "pending",
         buyerEmail: user?.email,
+        buyerName: user?.displayName
       };
       console.log(offerProperty);
       const data = await postOfferProperty(offerProperty);

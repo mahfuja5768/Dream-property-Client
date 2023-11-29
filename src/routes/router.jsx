@@ -22,6 +22,7 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ManageReviews from "./../pages/Dashboard/Admin/ManageReviews";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import MakeOffer from "../pages/Dashboard/User/MakeOffer";
+import AddNewProperty from "../pages/Dashboard/Agent/AddNewProperty";
 
 export const router = createBrowserRouter([
   {
@@ -90,6 +91,14 @@ export const router = createBrowserRouter([
         element: (
           <AgentRoute>
             <AddedProperties></AddedProperties>
+          </AgentRoute>
+        ),
+      },
+      {
+        path: "addNewProperty",
+        element: (
+          <AgentRoute>
+            <AddNewProperty></AddNewProperty>
           </AgentRoute>
         ),
       },

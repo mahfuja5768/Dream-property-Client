@@ -167,9 +167,6 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Choose Photo For Profile</span>
                 </label>
-                {/* <label htmlFor="image" className="block mb-2 text-sm">
-                  Select Image:
-                </label> */}
                 <input
                   {...register("image", { required: true })}
                   type="file"
