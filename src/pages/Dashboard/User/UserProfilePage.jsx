@@ -16,6 +16,7 @@ import { useState } from "react";
 import { imageUpload } from "../../../api/utils";
 import CustomButton from "../../../shared/CustomButton/customButton";
 import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const UserProfilePage = () => {
   const { user, updateUserProfile } = useAuth();
@@ -92,7 +93,8 @@ const UserProfilePage = () => {
       <Helmet>
         <title>Dream-Property | Profile</title>
       </Helmet>
-      <div className="card mx-auto md:w-96 bg-secondary shadow-xl">
+      <SectionTitle heading={'Your Profile'}></SectionTitle>
+      <div className="mt-24 card mx-auto md:w-96 bg-secondary shadow-xl">
         <figure className="-mt-12">
           <img
             src={user?.photoURL}

@@ -4,7 +4,13 @@ import useAuth from "../../../hooks/useAuth";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
+
+
 import { Helmet } from "react-helmet-async";
+
+
+
+
 
 const SoldProperties = () => {
   const {user} =useAuth()
@@ -12,18 +18,22 @@ const SoldProperties = () => {
     queryKey: ["properties"],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `/requested-properties?email=${user?.email}`
+        `/sold-properties?email=${user?.email}`
       );
       console.log(res.data);
       return res.data;
     },
   });
 
+
+      
+
+
   return (
     <Container>
       <Helmet>
-          <title>Dream-Property | Sold Property</title>
-        </Helmet>
+        <title>Dream-Property | Sold Property</title>
+      </Helmet>
       <SectionTitle heading={"Sold Properties"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
@@ -43,13 +53,25 @@ const SoldProperties = () => {
                 <th>{idx + 1}</th>
                 <th>{item.title}</th>
                 <td>{item.location}</td>
-                <td>{item.buyerEmail}</td>
-                <td>{item.buyerName}</td>
-                <td>{item.offerAmount}</td>
+                <td>{item.email}</td>
+                <td>{item.name}</td>
+                <td>{item.price}</td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="mt-12">
+        <SectionTitle heading={"Sold Amounts"}></SectionTitle>
+
+        <div>
+          {
+            properties.map(item=><p>
+              Amounts: {item.price}
+            </p>)
+          }
+        </div>
+       
       </div>
     </Container>
   );

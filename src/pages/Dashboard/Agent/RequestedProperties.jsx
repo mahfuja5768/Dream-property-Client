@@ -13,7 +13,7 @@ const RequestedProperties = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   //   console.log(user.email);
-  const { data: properties } = useQuery({
+  const { data: properties, refetch } = useQuery({
     queryKey: ["properties"],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -34,6 +34,7 @@ const RequestedProperties = () => {
         icon: "success",
         confirmButtonText: "Done",
       });
+      refetch()
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -56,6 +57,7 @@ const RequestedProperties = () => {
         icon: "success",
         confirmButtonText: "Done",
       });
+      refetch()
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -115,9 +117,7 @@ const RequestedProperties = () => {
           )}
         </table>
       </div>
-      <div className="flex justify-center items-center">
         {!properties?.length && <Empty text={"This"}></Empty>}
-      </div>
     </Container>
   );
 };
