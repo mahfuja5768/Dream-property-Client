@@ -3,16 +3,17 @@ import axiosSecure from "../../../api";
 import useAuth from "../../../hooks/useAuth";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+
 
 
 
 import { Helmet } from "react-helmet-async";
-
-
-
+import { useState } from "react";
 
 
 const SoldProperties = () => {
+  const [data, setData]=useState([])
   const {user} =useAuth()
   const { data: properties } = useQuery({
     queryKey: ["properties"],
@@ -20,13 +21,18 @@ const SoldProperties = () => {
       const res = await axiosSecure.get(
         `/sold-properties?email=${user?.email}`
       );
-      console.log(res.data);
+      const prices = res.data.map(item=>item.price)
+      setData(prices)
+      console.log(prices);
       return res.data;
     },
   });
 
 
-      
+   const transformedData = data.map((value, index) => ({
+     label: `Amount ${index + 1}`,
+     value: value,
+   }));
 
 
   return (
@@ -64,14 +70,21 @@ const SoldProperties = () => {
       <div className="mt-12">
         <SectionTitle heading={"Sold Amounts"}></SectionTitle>
 
-        <div>
+        {/* <div>
           {
             properties.map(item=><p>
               Amounts: {item.price}
             </p>)
           }
-        </div>
-       
+        </div> */}
+
+        <BarChart width={600} height={400} data={transformedData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="label" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="value" fill="#8884d8" />
+        </BarChart>
       </div>
     </Container>
   );
