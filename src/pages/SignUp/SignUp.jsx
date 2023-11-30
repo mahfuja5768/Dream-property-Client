@@ -8,7 +8,7 @@ import { saveUser } from "../../api/auth";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { imageUpload } from "../../api/utils";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import signupPic from '../../assets/images/signup.webp'
+import signupPic from "../../assets/images/signup.webp";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, logOut } = useAuth();
@@ -72,7 +72,7 @@ const SignUp = () => {
       <div className="hero min-h-screen">
         <div className="hero-content flex-col-reverse lg:flex-row-reverse">
           <div className="text-center lg:text-left ">
-           <img src={signupPic} className="w-full" alt="" />
+            <img src={signupPic} className="w-full" alt="" />
           </div>
           <div className="card  md:w-1/2 shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -114,18 +114,17 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                {/* <input
+                <input
                   type="password"
                   {...register("password", {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
-                    pattern:
-                      /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="password"
                   placeholder="password"
-                   className="w-full px-3 py-2 border rounded-md border-secondary focus:outline-primary bg-secondary text-gray-900"
+                  className="w-full px-3 py-2 border rounded-md border-secondary focus:outline-primary bg-secondary text-gray-900"
                 />
                 {errors.password?.type === "required" && (
                   <p role="alert" className="text-red-500">
@@ -146,20 +145,6 @@ const SignUp = () => {
                   <p role="alert" className="text-red-500">
                     Password must have one upper case, one lower case, one
                     number and one special characters
-                  </p>
-                )} */}
-                <input
-                  type="password"
-                  {...register("password", {
-                    required: true,
-                  })}
-                  name="password"
-                  placeholder="password"
-                  className="w-full px-3 py-2 border rounded-md border-secondary focus:outline-primary bg-secondary text-gray-900"
-                />
-                {errors.password?.type === "required" && (
-                  <p role="alert" className="text-red-500">
-                    Password is required
                   </p>
                 )}
               </div>
