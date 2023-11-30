@@ -109,7 +109,7 @@ const PropertyDetails = () => {
             </div>
           </div>
         </div>
-        <div className="-mt-12">
+        <div className="mt-12">
           <SectionTitle heading={"Reviews"}></SectionTitle>
 
           <div className="grid grid-cols-1 lg:grid-cols-6 gap-3">
