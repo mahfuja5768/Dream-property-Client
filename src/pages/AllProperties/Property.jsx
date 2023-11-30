@@ -19,7 +19,7 @@ export default function Property({ property }) {
     title,
     _id,
   } = property || {};
-  console.log(property);
+  // console.log(property);
   return (
     <div>
       <Card elevation={20}>

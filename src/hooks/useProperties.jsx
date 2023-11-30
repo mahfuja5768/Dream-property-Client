@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../api";
+import { useState } from "react";
 
 const useProperties = () => {
+  
   const { refetch, data: properties = [] } = useQuery({
     queryKey: ["properties"],
     queryFn: async () => {

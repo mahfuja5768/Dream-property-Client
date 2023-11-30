@@ -67,6 +67,7 @@ const SoldProperties = () => {
           </tbody>
         </table>
       </div>
+      
       <div className="mt-12">
         <SectionTitle heading={"Sold Amounts"}></SectionTitle>
 
