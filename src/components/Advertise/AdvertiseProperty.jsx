@@ -22,7 +22,8 @@ export default function AdvertiseProperty({ property }) {
   } = property || {};
   console.log(property);
   return (
-    <div>
+    <div data-aos="fade-up"
+    data-aos-duration="3000">
       <Card elevation={20}>
         <CardActionArea>
           <CardMedia

@@ -22,7 +22,12 @@ const LatestReviews = () => {
     <Container>
       <SectionTitle heading={"Recent Reviews"}></SectionTitle>
       {!homeReviews.length && <Empty text={"This"}></Empty>}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        data-aos="flip-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="3000"
+      >
         {homeReviews?.map((item) => (
           <div
             key={item._id}

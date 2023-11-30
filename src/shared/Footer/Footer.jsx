@@ -7,7 +7,12 @@ import CustomButton from "../CustomButton/customButton";
 
 const Footer = () => {
   return (
-    <div className="bg-secondary border-t px-8 mt-12">
+    <div
+      className="bg-secondary border-t px-8 mt-12"
+      data-aos="fade-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="3000"
+    >
       <footer>
         <Container>
           <div className=" py-12 md:py-16  grid grid-cols-1 md:grid-cols-4 gap-6">
