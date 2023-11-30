@@ -3,12 +3,13 @@ import axiosSecure from "../../../api";
 import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Container from "../../../shared/Container/Container";
-import CustomButton from "../../../hooks/CustomButton";
 import Swal from "sweetalert2";
-import { deleteWishlist, postOfferProperty } from "../../../api/auth";
+import { deleteWishlist } from "../../../api/auth";
 import { useState } from "react";
 import Empty from "../../../components/Empty/Empty";
 import { Link } from "react-router-dom";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const Wishlists = () => {
   const { user } = useAuth();
@@ -62,6 +63,9 @@ const Wishlists = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | My Wishlist</title>
+      </Helmet>
       <SectionTitle heading={"My Wishlists"}></SectionTitle>
       {!userWishlists?.length && <Empty text={"Your wishlist"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -92,8 +96,11 @@ const Wishlists = () => {
               {item?.priceRange?.max}
             </h3>
             <div className="flex justify-between items-center">
-              <Link to={`/dashboard/make-offer/${item.propertyId}`} className="w-full">
-                  <CustomButton buttonText={"Make An Offer"}></CustomButton>
+              <Link
+                to={`/dashboard/make-offer/${item.propertyId}`}
+                className="w-full"
+              >
+                <CustomButton buttonText={"Make An Offer"}></CustomButton>
               </Link>
               <span onClick={() => handleDelete(item._id)}>
                 <CustomButton buttonText={"Remove"}></CustomButton>

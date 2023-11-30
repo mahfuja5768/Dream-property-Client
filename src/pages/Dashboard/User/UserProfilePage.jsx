@@ -1,14 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import Container from "../../../shared/Container/Container";
-import axiosSecure from "../../../api";
 import useGetRole from "../../../hooks/useGetRole";
-import CustomButton from "../../../hooks/CustomButton";
 
 /* ----- */
 /* eslint-disable react/prop-types */
 import * as React from "react";
-import { Input, Button } from "@mui/material";
+import { Input } from "@mui/material";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -17,6 +14,8 @@ import TextField from "@mui/material/TextField";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { imageUpload } from "../../../api/utils";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const UserProfilePage = () => {
   const { user, updateUserProfile } = useAuth();
@@ -90,6 +89,9 @@ const UserProfilePage = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | Profile</title>
+      </Helmet>
       <div className="card mx-auto md:w-96 bg-secondary shadow-xl">
         <figure className="-mt-12">
           <img

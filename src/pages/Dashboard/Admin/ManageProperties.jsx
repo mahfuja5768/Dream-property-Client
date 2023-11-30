@@ -5,8 +5,9 @@ import axiosSecure from "../../../api";
 import Swal from "sweetalert2";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import CustomButton from "../../../hooks/customButton";
 import Empty from "../../../components/Empty/Empty";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const ManageProperties = () => {
   const { user } = useAuth();
@@ -99,12 +100,15 @@ const ManageProperties = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | Manage Properties</title>
+      </Helmet>
       <SectionTitle heading={"Requested Properties"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-lg text-primary bg-secondary">
+            <tr className="text-lg  text-primary  border-y-4 border-[#276597] bg-secondary">
               <th></th>
               <th>Property Title</th>
               <th>Location</th>
@@ -118,7 +122,7 @@ const ManageProperties = () => {
           {properties?.length > 0 ? (
             <tbody>
               {properties?.map((item, idx) => (
-                <tr key={item?._id} className="text-lg">
+                <tr key={item?._id} className="text-lg font-semibold">
                   <th>{idx + 1}</th>
                   <th>{item.title}</th>
                   <td>{item.location}</td>

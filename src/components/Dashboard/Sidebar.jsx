@@ -2,7 +2,6 @@ import { useState } from "react";
 import logo from "../../assets/images/logo.png";
 // import MenuItem from './MenuItem'
 import { AiOutlineBars } from "react-icons/ai";
-import CustomButton from "../../hooks/CustomButton";
 import { FaHouseChimney } from "react-icons/fa6";
 
 import MenuItem from "./MenuItem";
@@ -15,6 +14,7 @@ import AgentMenu from "./AgentMenu";
 import AdminMenu from "./AdminMenu";
 import Loading from "../../shared/Loading/Loading";
 import { Link } from "react-router-dom";
+import CustomButton from "../../shared/CustomButton/customButton";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(true);
@@ -67,15 +67,15 @@ const Sidebar = () => {
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
-          <div>
-            <div className="w-full hidden md:flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
+          <div className=" flex flex-col justify-center items-center">
+            <div className="w-full flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
               <Link to="/">
                 {" "}
                 <img src={logo} alt="" />
               </Link>{" "}
             </div>
             <Link to="/">
-              <h2 className="md:text-2xl text-xl font-bold text-primary">
+              <h2 className="md:text-2xl text-xl font-bold text-primary px-3">
                 Welcome to dashboard,{" "}
                 <span className="text-blue-900">{user?.displayName}</span>
               </h2>

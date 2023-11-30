@@ -8,9 +8,9 @@ import { Avatar, CardActionArea, CardActions, CardHeader } from "@mui/material";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axiosSecure from "../../../api";
-import CustomButton from "../../../hooks/customButton";
+import CustomButton from "../../../shared/CustomButton/customButton";
 
-export default function AddedProperty({refetch, property }) {
+export default function AddedProperty({ refetch, property }) {
   const {
     propertyImg,
     agentImg,
@@ -23,28 +23,30 @@ export default function AddedProperty({refetch, property }) {
   } = property || {};
   console.log(property);
 
-   const handleDelete = async (_id) => {
-     console.log(_id)
-     try {
-       const addedProperty = await axiosSecure.delete(`/agent-properties/${_id}`);
-       // console.log(review);
-       Swal.fire({
-         title: "Success!",
-         text: "Property deleted successfully !",
-         icon: "success",
-         confirmButtonText: "Done",
-       });
-       refetch();
-     } catch (error) {
-       console.log(error);
-       Swal.fire({
-         title: "Error!",
-         text: `${error.message}`,
-         icon: "error",
-         confirmButtonText: "Done",
-       });
-     }
-   };
+  const handleDelete = async (_id) => {
+    console.log(_id);
+    try {
+      const addedProperty = await axiosSecure.delete(
+        `/agent-properties/${_id}`
+      );
+      // console.log(review);
+      Swal.fire({
+        title: "Success!",
+        text: "Property deleted successfully !",
+        icon: "success",
+        confirmButtonText: "Done",
+      });
+      refetch();
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: `${error.message}`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
+    }
+  };
 
   return (
     <div>
@@ -89,17 +91,18 @@ export default function AddedProperty({refetch, property }) {
               Status: <span className="text-green-600">{status}</span>
             </Typography>
             <div className="flex justify-between items-center">
-              {status === "rejected" && (
-                ""
-              ) } {
-                status === 'verified'? <CardActions>
+              {status === "rejected" && ""}{" "}
+              {status === "verified" ? (
+                <CardActions>
                   <Link to={`/dashboard/updateProperty/${_id}`}>
                     <CustomButton buttonText="Update Now"></CustomButton>
                   </Link>
-                </CardActions> : 'It is not verify'
-              }
+                </CardActions>
+              ) : (
+                "It is not verify"
+              )}
               <CardActions>
-                <span onClick={()=>handleDelete(_id)}>
+                <span onClick={() => handleDelete(_id)}>
                   <CustomButton buttonText="Delete"></CustomButton>
                 </span>
               </CardActions>

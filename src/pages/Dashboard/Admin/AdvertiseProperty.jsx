@@ -1,66 +1,162 @@
-
+import { Helmet } from "react-helmet-async";
 import Empty from "../../../components/Empty/Empty";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import CustomButton from "../../../hooks/CustomButton";
 import useProperties from "../../../hooks/useProperties";
 import Container from "../../../shared/Container/Container";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { useState } from "react";
+import axiosSecure from "../../../api";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const AdvertiseProperty = () => {
-    const [properties] = useProperties();
-    return (
-      <Container>
-        <SectionTitle heading={"Requested Properties"}></SectionTitle>
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr className="text-lg text-primary bg-secondary">
-                <th></th>
-                <th>Property Image</th>
-                <th>Property Title</th>
-             
-                <th>Agent Name</th>
-                <th>Offer Price</th>
-                <th>Advertise</th>
-                <th>Remove from Advertise</th>
-              </tr>
-            </thead>
-            {properties?.length > 0 ? (
-              <tbody>
-                {properties?.map((item, idx) => (
-                  <tr key={item?._id} className="text-lg">
-                    <th>{idx + 1}</th>
-                    <th><img src={item.propertyImg} alt="" /></th>
-                    <th>{item.title}</th>
-                    <td>{item.agentName}</td>
-                    <td>
-                      ({item.priceRange.min}-{item.priceRange.max})$
-                    </td>
-                    <td>
-                      {item.status === "pending" && (
-                        <span onClick={() => handleVerify(item._id)}>
-                          <CustomButton buttonText={"Advertise"}></CustomButton>
-                        </span>
-                      )}
-                    </td>
+  const [properties, refetch] = useProperties();
+  // console.log(properties);
+  const { user } = useAuth();
 
-                    <td>
-                      {item.status === "pending" && (
-                        <span onClick={() => handleReject(item._id)}>
-                          <CustomButton buttonText={"Reject"}></CustomButton>
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            ) : (
-              <Empty text={"This"}></Empty>
-            )}
-          </table>
-        </div>
-      </Container>
-    );
+  const [loading, setLoading] = useState(false);
+
+  const handleAdvertise = async (item) => {
+    console.log(item);
+    try {
+      setLoading(true);
+
+      const adsProperty = {
+        propertyId: item._id,
+        propertyImg: item.propertyImg,
+        agentImg: item.agentImg,
+        agentName: item.agentName,
+        location: item.location,
+        priceRange: item.priceRange,
+        status: item.status,
+        title: item.title,
+        agentEmail: item.agentEmail,
+      };
+      // console.log(adsProperty)
+
+      const addToAds = await axiosSecure.post(
+        "/advertise-properties",
+        adsProperty
+      );
+
+      const updateStatus = await axiosSecure.patch(`/ads-status/${item._id}`);
+
+      Swal.fire({
+        title: `Dear ${user?.displayName},`,
+        text: "Property add to advertise successfully!",
+        icon: "success",
+        confirmButtonText: "Done",
+      });
+      refetch();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: `${error.message}`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
+    }
+  };
+
+  const handleRemoveAds = async (id) => {
+    console.log(id);
+    try {
+      setLoading(true);
+      const data = await axiosSecure.delete(`/advertise-properties/${id}`);
+      const removeAds = await axiosSecure.put(`/remove-status/${id}`);
+      console.log(data);
+      console.log(removeAds);
+      Swal.fire({
+        title: `Dear ${user?.displayName},`,
+        text: "Property removed from advertise!",
+        icon: "success",
+        confirmButtonText: "Done",
+      });
+      refetch();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: `${error.message}`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
+    }
+  };
+
+  return (
+    <Container>
+      <Helmet>
+        <title>Dream-Property | Advertise Property</title>
+      </Helmet>
+      <SectionTitle heading={"Requested Properties"}></SectionTitle>
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr className="text-lg  text-primary  border-y-4 border-[#276597] bg-secondary">
+              <th></th>
+              <th>Property Image</th>
+              <th>Property Title</th>
+
+              <th>Agent Name</th>
+              <th>Price Range</th>
+              <th>Advertise</th>
+              <th>Remove Advertise</th>
+            </tr>
+          </thead>
+          {properties?.length > 0 ? (
+            <tbody>
+              {properties?.map((item, idx) => (
+                <tr key={item?._id} className="text-lg font-semibold">
+                  <th>{idx + 1}</th>
+                  <th>
+                    <img
+                      className="w-24 h-24 rounded-2xl"
+                      src={item.propertyImg}
+                      alt=""
+                    />
+                  </th>
+                  <th>{item.title}</th>
+                  <td>{item.agentName}</td>
+                  <td>
+                    ({item.priceRange.min}-{item.priceRange.max})$
+                  </td>
+                  <td>
+                    {item?.adStatus === "advertised" ? (
+                      <span>
+                        <CustomButton
+                          disabled
+                          buttonText={"Advertise"}
+                        ></CustomButton>
+                      </span>
+                    ) : (
+                      <span onClick={() => handleAdvertise(item)}>
+                        <CustomButton buttonText={"Advertise"}></CustomButton>
+                      </span>
+                    )}
+                  </td>
+
+                  <td>
+                    {item?.adStatus === "advertised" && (
+                      <span onClick={() => handleRemoveAds(item._id)}>
+                        <CustomButton buttonText={"Remove Ad"}></CustomButton>
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          ) : (
+            <Empty text={"This"}></Empty>
+          )}
+        </table>
+      </div>
+    </Container>
+  );
 };
 
 export default AdvertiseProperty;

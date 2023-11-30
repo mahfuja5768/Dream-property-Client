@@ -5,6 +5,7 @@ import AddedProperty from "./AddedProperty";
 import useAuth from "../../../hooks/useAuth";
 import axiosSecure from "../../../api";
 import Empty from "../../../components/Empty/Empty";
+import { Helmet } from "react-helmet-async";
 
 
 const AddedProperties = () => {
@@ -21,6 +22,9 @@ const AddedProperties = () => {
      });
     return (
       <Container>
+         <Helmet>
+          <title>Dream-Property | My Added Properties</title>
+        </Helmet>
         <SectionTitle heading={"Added Properties"}></SectionTitle>
         {
             !addedProperty?.length && <Empty text={'This'}></Empty>

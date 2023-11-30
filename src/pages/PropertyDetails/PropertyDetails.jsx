@@ -1,6 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Container from "../../shared/Container/Container";
-import CustomButton from "../../hooks/CustomButton";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { addToWishlists } from "../../api/auth";
@@ -8,6 +7,7 @@ import React, { useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import AddReview from "./AddReview";
 import AllReviews from "./AllReviews/AllReviews";
+import CustomButton from "../../shared/CustomButton/customButton";
 
 const PropertyDetails = () => {
   const property = useLoaderData();

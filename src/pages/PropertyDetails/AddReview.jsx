@@ -5,11 +5,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import CustomButton from "../../hooks/CustomButton";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { addReviews } from "../../api/auth";
 import useReviews from "../../hooks/useReviews";
+import CustomButton from "../../shared/CustomButton/customButton";
 
 const style = {
   position: "absolute",
@@ -25,7 +25,7 @@ const style = {
 
 export default function AddReview({ propertyId, agentName, title }) {
   // console.log(propertyId, agentName, title);
-  const [allReviews,refetch] = useReviews();
+  const [allReviews, refetch] = useReviews();
 
   const { user } = useAuth();
   const [loading, setLoading] = React.useState(false);
@@ -33,7 +33,7 @@ export default function AddReview({ propertyId, agentName, title }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const date = new Date()
+  const date = new Date();
 
   const handleReviewChange = (event) => {
     setReview(event.target.value);
@@ -58,7 +58,7 @@ export default function AddReview({ propertyId, agentName, title }) {
 
       setReview("");
       handleClose();
-      refetch()
+      refetch();
       Swal.fire({
         title: "Success!",
         text: "Review added successfully!",

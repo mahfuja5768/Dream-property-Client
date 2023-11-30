@@ -3,7 +3,8 @@ import axiosSecure from "../../../api";
 import useAuth from "../../../hooks/useAuth";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import Swal from "sweetalert2";
+
+import { Helmet } from "react-helmet-async";
 
 const SoldProperties = () => {
   const {user} =useAuth()
@@ -20,12 +21,14 @@ const SoldProperties = () => {
 
   return (
     <Container>
+      <Helmet>
+          <title>Dream-Property | Sold Property</title>
+        </Helmet>
       <SectionTitle heading={"Sold Properties"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
-            <tr className="text-lg text-primary bg-secondary">
+            <tr className="text-lg  text-primary  border-y-4 border-[#276597] bg-secondary">
               <th></th>
               <th>Property Title</th>
               <th>Location</th>

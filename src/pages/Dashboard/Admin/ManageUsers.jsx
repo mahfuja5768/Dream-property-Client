@@ -2,9 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Container from "../../../shared/Container/Container";
 import axiosSecure from "../../../api";
-import CustomButton from "../../../hooks/customButton";
 import Empty from "../../../components/Empty/Empty";
 import Swal from "sweetalert2";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const { data: users, refetch } = useQuery({
@@ -102,12 +103,15 @@ const ManageUsers = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | Manage Users</title>
+      </Helmet>
       <SectionTitle heading={"Manage Users"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table text-lg">
           {/* head */}
           <thead>
-            <tr className="text-lg text-primary bg-secondary">
+            <tr className="text-lg  text-primary  border-y-4 border-[#276597] bg-secondary">
               <th></th>
               <th>User Name</th>
               <th>User Email</th>

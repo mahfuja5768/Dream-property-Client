@@ -6,8 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 // import { getOfferProperty } from '../../../api/auth';
 import Empty from "../../../components/Empty/Empty";
 import axiosSecure from "../../../api";
-import CustomButton from "../../../hooks/CustomButton";
 import { Link } from "react-router-dom";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const PropertyBrought = () => {
   const { user } = useAuth();
@@ -26,6 +27,9 @@ const PropertyBrought = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | My Brought Properties</title>
+      </Helmet>
       <SectionTitle heading={"My Brought Properties"}></SectionTitle>
       {!offerProperties?.length && <Empty text={"This"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -8,8 +8,9 @@ import { Avatar, CardActionArea, CardActions, CardHeader } from "@mui/material";
 import { Link } from "react-router-dom";
 import CustomButton from "../../shared/CustomButton/customButton";
 
-export default function Property({ property }) {
+export default function AdvertiseProperty({ property }) {
   const {
+    propertyId,
     propertyImg,
     agentImg,
     agentName,
@@ -64,7 +65,7 @@ export default function Property({ property }) {
                 Status: <span className="text-green-600">{status}</span>
               </Typography>
               <CardActions>
-                <Link to={`/details/${_id}`}>
+                <Link to={`/details/${propertyId}`}>
                   <CustomButton buttonText="See Details"></CustomButton>
                 </Link>
               </CardActions>

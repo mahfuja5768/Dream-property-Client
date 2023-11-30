@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { FaPhone } from "react-icons/fa6";
 import Container from "../Container/Container";
-import CustomButton from "../../hooks/CustomButton";
+import CustomButton from "../CustomButton/customButton";
 
 const Footer = () => {
   return (

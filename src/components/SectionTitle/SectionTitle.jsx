@@ -1,16 +1,32 @@
 /* eslint-disable react/prop-types */
-import Container from "../../shared/Container/Container";
 
 const SectionTitle = ({ heading }) => {
   return (
-    <Container>
-      {" "}
-      <div className="max-w-screen-xl mx-auto text-center md:w-3/12 my-12 mt-28">
-        <h3 className="text-xl md:text-2xl font-bold uppercase border-y-4 rounded-t-full bg-secondary border-primary py-3 px-4 md:py-12 lg:py-6 lg:px-6 mt-2">
-          {heading}
-        </h3>
-      </div>
-    </Container>
+    <div className="flex items-center justify-center mb-12">
+      <div
+        className="arrow-left"
+        style={{
+          width: 0,
+          height: 0,
+          borderTop: "40px solid transparent",
+          borderRight: "50px solid #276597",
+          borderBottom: "40px solid transparent",
+        }}
+      ></div>
+      <h3 className="text-xl md:text-2xl lg:text-3xl border-y-8 border-[#276597] bg-secondary w-1/4 font-bold  text-center py-3">
+        {heading}
+      </h3>
+      <div
+        className="arrow-right"
+        style={{
+          width: 0,
+          height: 0,
+          borderTop: "50px solid transparent",
+          borderLeft: "50px solid #276597",
+          borderBottom: "40px solid transparent",
+        }}
+      ></div>
+    </div>
   );
 };
 

@@ -6,10 +6,10 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Empty from "../../../components/Empty/Empty";
-import CustomButton from "../../../hooks/customButton";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const RequestedProperties = () => {
-  const [disable, setDisable] = useState(false);
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   //   console.log(user.email);
@@ -34,7 +34,6 @@ const RequestedProperties = () => {
         icon: "success",
         confirmButtonText: "Done",
       });
-      setDisable(true);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -57,7 +56,6 @@ const RequestedProperties = () => {
         icon: "success",
         confirmButtonText: "Done",
       });
-      setDisable(true);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -73,11 +71,13 @@ const RequestedProperties = () => {
   return (
     <Container>
       <SectionTitle heading={"Requested Properties"}></SectionTitle>
+      <Helmet>
+        <title>Dream-Property | Requested Property</title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
-            <tr className="text-lg text-primary bg-secondary">
+            <tr className="text-lg  text-primary  border-y-4 border-[#276597] bg-secondary">
               <th></th>
               <th>Property Title</th>
               <th>Location</th>
@@ -88,7 +88,8 @@ const RequestedProperties = () => {
               <th>Reject offer</th>
             </tr>
           </thead>
-          {properties?.length > 0 ? (
+
+          {properties?.length && (
             <tbody>
               {properties?.map((item, idx) => (
                 <tr key={item?._id}>
@@ -111,10 +112,11 @@ const RequestedProperties = () => {
                 </tr>
               ))}
             </tbody>
-          ) : (
-            <Empty text={"This"}></Empty>
           )}
         </table>
+      </div>
+      <div className="flex justify-center items-center">
+        {!properties?.length && <Empty text={"This"}></Empty>}
       </div>
     </Container>
   );

@@ -13,14 +13,9 @@ const UpdateProperty = () => {
   const {id}=useParams()
   // console.log(id)
   const {
-    propertyImg,
-    agentImg,
-    agentName,
     location,
     priceRange,
-    status,
     title,
-    _id,
   } = property[0] || {};
   // console.log(property);
   const [loading, setLoading] = useState(false);

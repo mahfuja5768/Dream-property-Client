@@ -1,10 +1,11 @@
 import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import CustomButton from "../../../hooks/CustomButton";
 import useUserReview from "../../../hooks/useUserReview";
 import Container from "../../../shared/Container/Container";
 import { deleteReviews } from "../../../api/auth";
 import Empty from "../../../components/Empty/Empty";
+import CustomButton from "../../../shared/CustomButton/customButton";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const [userReviews, refetch] = useUserReview();
@@ -35,8 +36,11 @@ const MyReviews = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Dream-Property | My Reviews</title>
+      </Helmet>
       <SectionTitle heading={"My Reviews"}></SectionTitle>
-      {!userReviews.length && <Empty text={'This'}></Empty>}
+      {!userReviews.length && <Empty text={"This"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {userReviews?.map((item) => (
           <div

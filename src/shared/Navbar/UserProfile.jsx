@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
-import CustomButton from "../../hooks/CustomButton";
 import Swal from "sweetalert2";
+import CustomButton from "../CustomButton/customButton";
 
 const UserProfile = ({ flex, center }) => {
   const { user, logOut } = useAuth();
