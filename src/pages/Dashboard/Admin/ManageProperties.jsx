@@ -16,7 +16,7 @@ const ManageProperties = () => {
   const { data: properties, refetch } = useQuery({
     queryKey: ["properties"],
     queryFn: async () => {
-      const res = await axiosSecure.get("all-agent-properties");
+      const res = await axiosSecure.get("/all-agent-properties");
       console.log(res.data);
       return res.data;
     },
@@ -26,7 +26,6 @@ const ManageProperties = () => {
     try {
       setLoading(true);
       const data = await axiosSecure.patch(`/verify-agent-property/${id}`);
-      refetch();
 
       const getProperty = await axiosSecure.get(`/agent-properties/${id}`);
       console.log(getProperty.data[0]);
@@ -40,7 +39,7 @@ const ManageProperties = () => {
         title,
         agentEmail,
       } = getProperty.data[0] || {};
-      //   console.log("p---->", getProperty);
+      console.log("p---->", getProperty);
       const property = {
         propertyImg,
         agentImg,
@@ -57,6 +56,7 @@ const ManageProperties = () => {
         "/add-to-properties",
         property
       );
+      refetch();
       Swal.fire({
         title: "Success!",
         text: "Property verified successfully!",
@@ -103,7 +103,7 @@ const ManageProperties = () => {
       <Helmet>
         <title>Dream-Property | Manage Properties</title>
       </Helmet>
-      <SectionTitle heading={"Requested Properties"}></SectionTitle>
+      <SectionTitle heading={"Manage Properties"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

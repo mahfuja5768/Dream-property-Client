@@ -8,11 +8,22 @@ import { useState } from "react";
 import axiosSecure from "../../../api";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 
 const AdvertiseProperty = () => {
   const [properties, refetch] = useProperties();
   // console.log(properties);
   const { user } = useAuth();
+
+  const { data: getAdsProperties } = useQuery({
+    queryKey: ["getAdsProperties"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/advertise-properties");
+      console.log(res.data);
+      return res.data;
+    },
+  });
+  console.log(getAdsProperties?.length)
 
   const [loading, setLoading] = useState(false);
 
@@ -34,21 +45,30 @@ const AdvertiseProperty = () => {
       };
       // console.log(adsProperty)
 
-      const addToAds = await axiosSecure.post(
-        "/advertise-properties",
-        adsProperty
-      );
+      if (getAdsProperties.length < 7) {
+        const addToAds = await axiosSecure.post(
+          "/advertise-properties",
+          adsProperty
+        );
 
-      const updateStatus = await axiosSecure.patch(`/ads-status/${item._id}`);
+        const updateStatus = await axiosSecure.patch(`/ads-status/${item._id}`);
 
-      Swal.fire({
-        title: `Dear ${user?.displayName},`,
-        text: "Property add to advertise successfully!",
-        icon: "success",
-        confirmButtonText: "Done",
-      });
-      refetch();
-      setLoading(false);
+        Swal.fire({
+          title: `Dear ${user?.displayName},`,
+          text: "Property add to advertise successfully!",
+          icon: "success",
+          confirmButtonText: "Done",
+        });
+        refetch();
+        setLoading(false);
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "You can not advertise  more than 6 properties!",
+          icon: "error",
+          confirmButtonText: "Done",
+        });
+      }
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -92,7 +112,7 @@ const AdvertiseProperty = () => {
       <Helmet>
         <title>Dream-Property | Advertise Property</title>
       </Helmet>
-      <SectionTitle heading={"Requested Properties"}></SectionTitle>
+      <SectionTitle heading={"Advertise Properties"}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
