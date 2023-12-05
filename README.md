@@ -1,7 +1,7 @@
 ## Website name- Dream Property
 
 ### Website live Link- https://dream-property.netlify.app/
-### Server site code link- https://github.com/mahfuja5768/Dream-property-server
+### Server side code link- https://github.com/mahfuja5768/Dream-property-server
 
 ### Website features:
 
