@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const AdvertiseProperty = () => {
   const [properties, refetch] = useProperties();
-  // console.log(properties);
+  console.log(properties.map(i=>i.adStatus));
   const { user } = useAuth();
 
   const { data: getAdsProperties } = useQuery({
@@ -81,19 +81,21 @@ const AdvertiseProperty = () => {
   };
 
   const handleRemoveAds = async (id) => {
-    console.log(id);
+    console.log('i--->',id);
     try {
       setLoading(true);
       const data = await axiosSecure.delete(`/advertise-properties/${id}`);
-      const removeAds = await axiosSecure.put(`/remove-status/${id}`);
-      console.log(data);
-      console.log(removeAds);
+     
       Swal.fire({
         title: `Dear ${user?.displayName},`,
         text: "Property removed from advertise!",
         icon: "success",
         confirmButtonText: "Done",
       });
+
+      const removeAds = await axiosSecure.patch(`/remove-status/${id}`);
+      console.log(removeAds);
+     
       refetch();
       setLoading(false);
     } catch (error) {
