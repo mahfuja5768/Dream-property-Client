@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useProperties from "../../hooks/useProperties";
@@ -6,35 +5,37 @@ import Container from "../../shared/Container/Container";
 import Property from "./Property";
 import CustomButton from "../../shared/CustomButton/customButton";
 import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../../api";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const AllProperties = () => {
-  // let [properties] = useProperties();
   const [properties, setProperties] = useState([]);
-  const [searchProperty, setSearchProperty] = useState('');
+  const [sort, setSort] = useState([]);
+  const [searchProperty, setSearchProperty] = useState("");
 
+  const handleSort = () => {
+    axiosSecure
+      .get(`http://localhost:5000/sort-properties?order=${sort}`)
+      .then((res) => {
+        console.log(res.data);
+        setProperties(res.data);
+      });
+  };
 
   useEffect(() => {
-    axiosSecure.get('/properties').then((res) => {
-        console.log(res.data);
+    axiosSecure.get("/properties").then((res) => {
+      console.log(res.data);
       setProperties(res.data);
     });
   }, []);
 
   const handleSearch = () => {
     console.log("ggggggg--->", searchProperty);
-    axiosSecure
-      .get(
-        `search-properties/${searchProperty}`
-      )
-      .then((res) => {
-        const selectedProps = res.data;
-        console.log(selectedProps);
-        setProperties(selectedProps);
-      });
+    axiosSecure.get(`search-properties/${searchProperty}`).then((res) => {
+      const selectedProps = res.data;
+      console.log(selectedProps);
+      setProperties(selectedProps);
+    });
   };
   return (
     <Container>
@@ -43,31 +44,35 @@ const AllProperties = () => {
       </Helmet>
       <SectionTitle heading={"All Verified Properties"}></SectionTitle>
 
-      <div className="flex justify-center flex-col items-center ">
-            <h2 className="text-red text-3xl mb-4 font-bold">
-              Search property by title:
-            </h2>
-            <div className="input-group flex">
-              <input
-                onChange={(e) => setSearchProperty(e.target.value)}
-                type="text"
-                placeholder="Type here"
-                className="px-3 me-2  border-2 border-primary rounded-md text-black"
-              />
-              <Link onClick={handleSearch}>
+      <div className="flex justify-between flex-col items-center ">
+        <h2 className="text-red text-3xl mb-4 font-bold">
+          Search property by title:
+        </h2>
+        <div className="input-group flex">
+          <input
+            onChange={(e) => setSearchProperty(e.target.value)}
+            type="text"
+            placeholder="Type here"
+            className="px-3 me-2  border-2 border-primary rounded-md text-black"
+          />
+          <Link onClick={handleSearch}>
+            <CustomButton buttonText={"Search"}></CustomButton>
+          </Link>
+        </div>
+        <div className="input-group my-12">
+          <div className="input-group flex">
+            <select
+              onChange={(e) => setSort(e.target.value)}
+              className="select select-bordered me-2 rounded-2xl border-2 border-primary text-black"
+            >
+              <option value="desc">Max</option>
+              <option value="asc">Min</option>
+            </select>
+            <Link onClick={handleSort}>
               <CustomButton buttonText={"Search"}></CustomButton>
-              </Link>
-            </div>
+            </Link>
           </div>
-
-      <div className="input-group my-12">
-        <select
-          onChange={(e) => setSort(e.target.value)}
-          className="select select-bordered me-2 rounded-2xl border-2 border-red text-black"
-        >
-          <option value="max">Max</option>
-          <option value="min">Min</option>
-        </select>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-9 justify-center items-center">
