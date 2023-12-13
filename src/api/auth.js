@@ -67,4 +67,3 @@ export const updateProperty = async (id) => {
   // console.log("ddd-------->", data);
   return data;
 };
-

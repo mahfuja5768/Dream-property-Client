@@ -3,6 +3,8 @@ import axiosSecure from "../api";
 import { useState } from "react";
 
 const useProperties = () => {
+
+  
   
   const { refetch, data: properties = [] } = useQuery({
     queryKey: ["properties"],
