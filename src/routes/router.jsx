@@ -27,6 +27,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import UpdateProperty from "../pages/Dashboard/Agent/UpdateProperty";
 import { updateProperty } from "../api/auth";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,11 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      
+      {
+        path: "/dashboard",
+        element: <DashboardHome></DashboardHome>,
+      },
       {
         path: "myProfile",
         element: <UserProfilePage></UserProfilePage>,

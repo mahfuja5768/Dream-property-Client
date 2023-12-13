@@ -74,12 +74,7 @@ const Sidebar = () => {
                 <img src={logo} alt="" />
               </Link>{" "}
             </div>
-            <Link to="/">
-              <h2 className="md:text-2xl text-xl font-bold text-primary px-3">
-                Welcome to dashboard,{" "}
-                <span className="text-blue-900">{user?.displayName}</span>
-              </h2>
-            </Link>
+           
           </div>
 
           {/* Nav Items */}
