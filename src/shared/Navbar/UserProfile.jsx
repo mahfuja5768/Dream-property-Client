@@ -29,7 +29,7 @@ const UserProfile = ({ flex, center }) => {
           : " flex flex-col gap-4"
       }
     >
-      {user && (
+      {/* {user && (
         <div
           className={
             center
@@ -59,9 +59,9 @@ const UserProfile = ({ flex, center }) => {
           </Link>
         
         </>
-      )}
+      )} */}
 
-      {/* <div className="hidden lg:flex gap-3 justify-center items-center">
+      <div className="hidden lg:flex gap-3 justify-center items-center">
         {user ? (
           <div className=" flex  items-center gap-2 justify-center mx-2">
             {user?.photoURL && (
@@ -99,10 +99,10 @@ const UserProfile = ({ flex, center }) => {
                         Login
                       </Link>
                       <Link
-                        to="/login"
+                        to="/signup"
                         className="btn bg-primary border-none hover:bg-red text-white"
                       >
-                        Login
+                        sign up
                       </Link>
                     </div>
                   )}
@@ -121,14 +121,14 @@ const UserProfile = ({ flex, center }) => {
               Login
             </Link>
             <Link
-              to="/login"
+              to="/signup"
               className="btn bg-primary border-none hover:bg-red text-white"
             >
-              Login
+            Sign Up
             </Link>
           </div>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

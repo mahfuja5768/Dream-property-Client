@@ -14,18 +14,111 @@ const ExploreProperties = () => {
   return (
     <Container>
       <SectionTitle heading={"Explore More Properties"}></SectionTitle>
-      <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-      
-      >
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img1} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img2} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img3} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img4} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img5} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img6} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img7} className="" alt="" />
-        <img   data-aos="zoom-out" data-aos-duration="3000" src={img8} className="" alt="" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img1}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img2}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img3}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img4}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img5}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img6}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img7}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="3000"
+          src={img8}
+          className=""
+          alt=""
+        />
       </div>
     </Container>
   );

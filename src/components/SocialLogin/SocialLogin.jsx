@@ -7,11 +7,12 @@ import useAuth from "../../hooks/useAuth";
 const SocialLogin = () => {
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
+  
   const handleGoogleSignIn = async () => {
     try {
       const result = await googleLogin();
-      const saveUserInfo = await saveUser(result?.user);
-      console.log(saveUserInfo);
+      const saveUserInfo = await saveUser(result.user);
+      // console.log(saveUserInfo);
 
       Swal.fire({
         title: "Success!",

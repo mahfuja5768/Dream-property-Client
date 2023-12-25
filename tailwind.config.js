@@ -14,8 +14,11 @@ export default {
       primary: '#0F1B4C',
       secondary: "#e7efff",
     },
-    borderImage: {
-      'multicolor': 'linear-gradient(to right, #ff8a65, #ffb74d, #ffca28, #d4e157, #aed581)',
+    borderColor: {
+      borderImage: 'linear-gradient(to right, #0F1B4C, #e7efff)', 
+      borderImageSlice: 1,
+      borderWidth: '4px',
+      borderStyle: 'solid',
     },
 
     },
