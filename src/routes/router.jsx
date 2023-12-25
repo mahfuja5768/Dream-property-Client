@@ -28,6 +28,7 @@ import UpdateProperty from "../pages/Dashboard/Agent/UpdateProperty";
 import { updateProperty } from "../api/auth";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
+import Career from "../pages/Career/Career";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/career",
+        element: <Career></Career>,
       },
       {
         path: "/allProperties",

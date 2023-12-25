@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { FaBell } from "react-icons/fa";
 
 const Navbar = () => {
   const {user} = useAuth()
@@ -10,8 +11,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? " underline decoration-primary bg-transparent hover:text-primary hover:bg-transparent decoration-2 underline-offset-8"
-              : "bg-transparent hover:text-primary hover:bg-transparent"
+              ? " underline decoration-primary bg-transparent hover:text-gray-400 hover:bg-transparent decoration-2 underline-offset-8"
+              : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
           Home
@@ -22,8 +23,8 @@ const Navbar = () => {
           to="/allProperties"
           className={({ isActive }) =>
             isActive
-              ? " underline decoration-primary bg-transparent hover:text-primary hover:bg-transparent decoration-2 underline-offset-8"
-              : "bg-transparent hover:text-primary hover:bg-transparent"
+              ? " underline decoration-primary bg-transparent hover:text-gray-400 hover:bg-transparent decoration-2 underline-offset-8"
+              : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
           All Properties
@@ -35,13 +36,14 @@ const Navbar = () => {
           to="/dashboard"
           className={({ isActive }) =>
             isActive
-              ? " underline decoration-primary bg-transparent hover:text-primary hover:bg-transparent decoration-2 underline-offset-8"
-              : "bg-transparent hover:text-primary hover:bg-transparent"
+              ? " underline decoration-primary bg-transparent hover:text-gray-400 hover:bg-transparent decoration-2 underline-offset-8"
+              : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
-          Dashboard
+          Dashboard 
         </NavLink>
       </li>
+      <FaBell />
     </>
   );
 };

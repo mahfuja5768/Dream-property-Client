@@ -34,9 +34,14 @@ const PropertyBrought = () => {
       {!offerProperties?.length && <Empty text={"This"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {offerProperties?.map((item) => (
-          <div
+          <div  style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)", // Using colors from Tailwind configuration
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
             key={item._id}
-            className="bg-secondary border-2 border-primary shadow-xl p-6 space-y-3"
+            className="bg-white  shadow-xl p-6 space-y-3"
           >
             {" "}
             <img

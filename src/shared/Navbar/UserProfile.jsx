@@ -29,42 +29,12 @@ const UserProfile = ({ flex, center }) => {
           : " flex flex-col gap-4"
       }
     >
-      {/* {user && (
-        <div
-          className={
-            center
-              ? "flex items-center justify-center gap-3 border p-2 rounded-3xl cursor-pointer"
-              : "cursor-pointer flex-col gap-3"
-          }
-        >
-          <div className="avatar">
-            <div className="w-12 mask mask-squircle">
-              <img className="" src={user?.photoURL} />
-            </div>
-          </div>
-          <h1>{user?.displayName}</h1>
-        </div>
-      )}
-      {user ? (
-        <Link onClick={handleLogout} to="/login">
-          <CustomButton buttonText="Log out" />
-        </Link>
-      ) : (
-        <>
-          <Link to="/login">
-            <CustomButton buttonText="Login" />
-          </Link>
-          <Link to="/signUp">
-            <CustomButton buttonText="Sign up" />
-          </Link>
-        
-        </>
-      )} */}
 
-      <div className="hidden lg:flex gap-3 justify-center items-center">
+      <div className="flex gap-3  lg:justify-center lg:items-center">
         {user ? (
-          <div className=" flex  items-center gap-2 justify-center mx-2">
-            {user?.photoURL && (
+          <div className=" flex flex-col lg:flex-row items-start lg:items-center gap-2 justify-start lg:justify-center mx-2">
+           <div>
+           {user?.photoURL && (
               <div className="dropdown dropdown-bottom">
                 <label
                   tabIndex={0}
@@ -85,7 +55,7 @@ const UserProfile = ({ flex, center }) => {
                     <Link
                       to="/login"
                       onClick={handleLogout}
-                      className="btn bg-primary border-none hover:bg-red text-white"
+                      className="btn bg-primary border-none text-white"
                     >
                       Log out
                     </Link>
@@ -94,13 +64,13 @@ const UserProfile = ({ flex, center }) => {
                     <div>
                       <Link
                         to="/login"
-                        className="btn bg-primary border-none hover:bg-red text-white"
+                        className="btn bg-primary border-none text-white"
                       >
                         Login
                       </Link>
                       <Link
                         to="/signup"
-                        className="btn bg-primary border-none hover:bg-red text-white"
+                        className="btn bg-primary border-none text-white"
                       >
                         sign up
                       </Link>
@@ -109,6 +79,7 @@ const UserProfile = ({ flex, center }) => {
                 </ul>
               </div>
             )}
+           </div>
 
             <h3 className=" text-sm text-center mt-1">{user?.displayName}</h3>
           </div>
@@ -116,13 +87,13 @@ const UserProfile = ({ flex, center }) => {
           <div className="flex gap-4">
             <Link
               to="/login"
-              className="btn bg-primary border-none hover:bg-red text-white"
+              className="btn bg-white border-none text-white"
             >
               Login
             </Link>
             <Link
               to="/signup"
-              className="btn bg-primary border-none hover:bg-red text-white"
+              className="btn bg-primary border-none text-white"
             >
             Sign Up
             </Link>

@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-secondary">
+        <ul className="menu p-4 w-80 min-h-full bg-primary text-white  z-10 md:fixed flex flex-col justify-start pt-24 overflow-x-hidden  space-y-6 px-2 py-4 absolute inset-y-0 left-0">
           <Navbar></Navbar>
           <div className="pl-4">
           <UserProfile></UserProfile>

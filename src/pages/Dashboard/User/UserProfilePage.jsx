@@ -21,7 +21,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const UserProfilePage = () => {
   const { user, updateUserProfile } = useAuth();
   const [userRole, refetch] = useGetRole();
-  console.log(userRole);
+  // console.log(userRole);
 
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -93,8 +93,16 @@ const UserProfilePage = () => {
       <Helmet>
         <title>Dream-Property | Profile</title>
       </Helmet>
-      <SectionTitle heading={'Your Profile'}></SectionTitle>
-      <div className="mt-24 card mx-auto md:w-96 bg-secondary shadow-xl">
+      <SectionTitle heading={"Your Profile"}></SectionTitle>
+      <div
+        style={{
+          borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)", // Using colors from Tailwind configuration
+          borderImageSlice: 1,
+          borderWidth: "4px",
+          borderStyle: "solid",
+        }}
+        className="mt-24 card mx-auto md:w-96 bg-white shadow-xl"
+      >
         <figure className="-mt-12">
           <img
             src={user?.photoURL}
