@@ -4,14 +4,15 @@ import Footer from "../shared/Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="font-inter">
-    <Layout>
-    <div className="pt-0 min-h-[calc(100vh-306px)]">
-      <Outlet />
-      <Footer></Footer>
+      <div className="font-inter bg-secondary">
+      <Layout>
+      <div className=" pt-0 min-h-[calc(100vh-306px)]">
+        <Outlet />
+        <Footer></Footer>
+      </div>
+      </Layout >
     </div>
-    </Layout >
-  </div>
+ 
   );
 };
 

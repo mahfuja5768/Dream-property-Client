@@ -54,9 +54,14 @@ const ManageReviews = () => {
       {!allReviews?.length && <Empty text={"This"}></Empty>}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {allReviews?.map((item) => (
-          <div
+          <div  style={{
+            borderImage: 'linear-gradient(to right, #0F1B4C, #e7efff)', // Using colors from Tailwind configuration
+            borderImageSlice: 1,
+            borderWidth: '4px',
+            borderStyle: 'solid',
+          }}
             key={item?._id}
-            className="bg-secondary border-2 text-lg  text-primary  border-y-8 border-[#276597] shadow-xl p-6 space-y-3"
+            className="bg-white text-lg  text-primary shadow-xl p-6 space-y-3"
           >
             <div className="flex flex-row-reverse items-center gap-2 justify-end ">
               <h3 className="text-2xl font-bold">

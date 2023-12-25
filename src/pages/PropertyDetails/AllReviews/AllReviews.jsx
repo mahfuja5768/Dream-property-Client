@@ -48,7 +48,7 @@ const AllReviews = ({ propertyId }) => {
           ) : (
             reviews.map((item) => (
               <SwiperSlide className="text-center mx-auto" key={item._id}>
-                <div className="bg-secondary p-12 rounded-2xl">
+                <div className=" p-12 rounded-2xl">
                   <p className="md:text-2xl text-xl font-medium text-primary">
                     Review for: {item.title}
                   </p>

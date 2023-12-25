@@ -73,7 +73,7 @@ const PropertyDetails = () => {
   return (
     <Container>
       <div className="px-4 mt-24">
-        <SectionTitle heading={`${title} Details`}></SectionTitle>
+       
         <div className="grid lg:grid-cols-6 gap-6 items-center justify-center">
           <div className=" lg:col-span-4">
             <img
@@ -85,7 +85,7 @@ const PropertyDetails = () => {
 
           <div className="lg:col-span-2 space-y-4 bg-secondary p-6 md:p-12 rounded-2xl">
             <h2 className="lg:text-3xl text-2xl font-bold flex gap-2 items-center">
-              {title}
+            {title} Details
             </h2>
             <h3 className="text-2xl font-bold mb-3">Location: {location}</h3>
             <h3 className="text-2xl font-bold mb-3">

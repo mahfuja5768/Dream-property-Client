@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 const CustomButton = ({ disabled, buttonText }) => {
   return (
-    <div>
+    <div className="w-full">
       {disabled ? (
         <button
           disabled
-          className="btn cursor-pointer bg-primary text-white hover:border-primary border-4 hover:bg-transparent hover:text-primary"
+          className="btn w-full cursor-pointer bg-primary text-white hover:border-primary border-4 hover:bg-transparent hover:text-primary"
         >
           {buttonText}
         </button>
       ) : (
-        <button className="btn cursor-pointer bg-primary text-white hover:border-primary border-4 hover:bg-transparent hover:text-primary">
+        <button className="btn w-full cursor-pointer bg-primary text-white hover:border-primary border-4 hover:bg-transparent hover:text-primary">
           {buttonText}
         </button>
       )}

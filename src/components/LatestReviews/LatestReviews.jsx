@@ -24,14 +24,18 @@ const LatestReviews = () => {
       {!homeReviews.length && <Empty text={"This"}></Empty>}
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        data-aos="flip-up"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="3000"
+      
       >
         {homeReviews?.map((item) => (
-          <div
+          <div   data-aos="zoom-in" data-aos-duration="3000"
+            style={{
+              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)", // Using colors from Tailwind configuration
+              borderImageSlice: 1,
+              borderWidth: "4px",
+              borderStyle: "solid",
+            }}
             key={item._id}
-            className="bg-secondary border-2 border-primary shadow-xl p-6 space-y-3"
+            className=" border-2 bg-white shadow-xl p-6 space-y-3"
           >
             <h3 className="text-2xl font-bold">Property Title: {item.title}</h3>
             <div className="flex  items-center justify-end gap-3 flex-row-reverse">

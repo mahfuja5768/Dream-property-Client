@@ -78,7 +78,7 @@ export default function AddReview({ propertyId, agentName, title }) {
   };
 
   return (
-    <div className="text-center bg-secondary py-5 rounded-2xl my-12">
+    <div className="text-center py-5 rounded-2xl my-12">
       <Typography
         gutterBottom
         variant="h5"

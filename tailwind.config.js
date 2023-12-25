@@ -14,6 +14,9 @@ export default {
       primary: '#0F1B4C',
       secondary: "#e7efff",
     },
+    borderImage: {
+      'multicolor': 'linear-gradient(to right, #ff8a65, #ffb74d, #ffca28, #d4e157, #aed581)',
+    },
 
     },
   },

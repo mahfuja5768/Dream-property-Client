@@ -16,18 +16,16 @@ const ExploreProperties = () => {
       <SectionTitle heading={"Explore More Properties"}></SectionTitle>
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        data-aos="flip-up"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="3000"
+      
       >
-        <img src={img1} className="" alt="" />
-        <img src={img2} className="" alt="" />
-        <img src={img3} className="" alt="" />
-        <img src={img4} className="" alt="" />
-        <img src={img5} className="" alt="" />
-        <img src={img6} className="" alt="" />
-        <img src={img7} className="" alt="" />
-        <img src={img8} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img1} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img2} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img3} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img4} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img5} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img6} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img7} className="" alt="" />
+        <img   data-aos="zoom-out" data-aos-duration="3000" src={img8} className="" alt="" />
       </div>
     </Container>
   );

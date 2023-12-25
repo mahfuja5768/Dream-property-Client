@@ -47,7 +47,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="bg-secondary text-primary flex justify-between md:hidden">
+      <div className="bg-[#fff] text-primary flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <img src={logo} className="w-28" alt="" />
@@ -62,7 +62,7 @@ const Sidebar = () => {
         </button>
       </div>
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-secondary w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-[#fff] w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -100,7 +100,7 @@ const Sidebar = () => {
 
         <div>
           <hr />
-          <span onClick={handleLogout}>
+          <span onClick={handleLogout} className="pt-5 w-full">
             <CustomButton buttonText={"Logout Now"} />
           </span>
         </div>

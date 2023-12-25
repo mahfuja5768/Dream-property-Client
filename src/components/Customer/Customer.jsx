@@ -13,19 +13,17 @@ const Customer = () => {
     <Container>
       <div
         className=" my-12"
-        data-aos="fade-up"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="3000"
+       
       >
         <SectionTitle heading={"Happy Customer"}></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <img src={img1} className="" alt="" />
-          <img src={img2} className="" alt="" />
-          <img src={img3} className="" alt="" />
-          <img src={img4} className="" alt="" />
-          <img src={img5} className="" alt="" />
-          <img src={img6} className="" alt="" />
-          <img src={img7} className="" alt="" />
+          <img data-aos="flip-left" src={img1} className="" alt="" />
+          <img data-aos="flip-left" src={img2} className="" alt="" />
+          <img data-aos="flip-left" src={img3} className="" alt="" />
+          <img data-aos="flip-left" src={img4} className="" alt="" />
+          <img data-aos="flip-left" src={img5} className="" alt="" />
+          <img data-aos="flip-left" src={img6} className="" alt="" />
+          <img data-aos="flip-left" src={img7} className="" alt="" />
         </div>
       </div>
     </Container>

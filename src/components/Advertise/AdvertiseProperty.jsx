@@ -22,9 +22,16 @@ export default function AdvertiseProperty({ property }) {
   } = property || {};
   console.log(property);
   return (
-    <div data-aos="fade-up"
-    data-aos-duration="3000">
-      <Card elevation={20}>
+    <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      <Card
+        elevation={20}
+        style={{
+          borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)", // Using colors from Tailwind configuration
+          borderImageSlice: 1,
+          borderWidth: "4px",
+          borderStyle: "solid",
+        }}
+      >
         <CardActionArea>
           <CardMedia
             style={{

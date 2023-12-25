@@ -15,9 +15,9 @@ const AllProperties = () => {
 
   const handleSort = () => {
     axiosSecure
-      .get(`http://localhost:5000/sort-properties?order=${sort}`)
+      .get(`/sort-properties?order=${sort}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProperties(res.data);
       });
   };
@@ -44,10 +44,7 @@ const AllProperties = () => {
       </Helmet>
       <SectionTitle heading={"All Verified Properties"}></SectionTitle>
 
-      <div className="flex justify-between flex-col items-center ">
-        <h2 className="text-red text-3xl mb-4 font-bold">
-          Search property by title:
-        </h2>
+      <div className="flex justify-evenly flex-col lg:flex-row items-center ">
         <div className="input-group flex">
           <input
             onChange={(e) => setSearchProperty(e.target.value)}

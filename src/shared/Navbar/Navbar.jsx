@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const {user} = useAuth()
   return (
     <>
       <li>
@@ -38,19 +40,6 @@ const Navbar = () => {
           }
         >
           Dashboard
-        </NavLink>
-      </li>
-      
-      <li>
-        <NavLink
-          to="/signUp"
-          className={({ isActive }) =>
-            isActive
-              ? " underline decoration-primary bg-transparent hover:text-primary hover:bg-transparent decoration-2 underline-offset-8"
-              : "bg-transparent hover:text-primary hover:bg-transparent"
-          }
-        >
-          Sign up
         </NavLink>
       </li>
     </>

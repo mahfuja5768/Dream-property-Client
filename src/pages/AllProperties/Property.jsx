@@ -22,7 +22,12 @@ export default function Property({ property }) {
   // console.log(property);
   return (
     <div>
-      <Card elevation={20}>
+      <Card elevation={20}  style={{
+          borderImage: 'linear-gradient(to right, #0F1B4C, #e7efff)', // Using colors from Tailwind configuration
+          borderImageSlice: 1,
+          borderWidth: '4px',
+          borderStyle: 'solid',
+        }}>
         <CardActionArea>
           <CardMedia
             style={{
