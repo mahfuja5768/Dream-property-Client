@@ -13,91 +13,17 @@ const Customer = () => {
     <Container>
       <div className=" my-12">
         <SectionTitle heading={"Happy Customer"}></SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img1}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img2}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img3}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img4}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img5}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img6}
-            className=""
-            alt=""
-          />
-          <img
-            style={{
-              borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
-              borderImageSlice: 1,
-              borderWidth: "4px",
-              borderStyle: "solid",
-            }}
-            data-aos="flip-left"
-            src={img7}
-            className=""
-            alt=""
-          />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {[img1, img2, img3, img4, img5, img6, img7].map((img, index) => (
+            <img
+              key={index}
+             
+              data-aos="flip-left"
+              src={img}
+              className="w-full h-[300px] rounded-full"
+              alt={`Image ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </Container>

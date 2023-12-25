@@ -22,7 +22,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img1}
           className=""
@@ -35,7 +35,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img2}
           className=""
@@ -48,7 +48,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img3}
           className=""
@@ -61,7 +61,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img4}
           className=""
@@ -74,7 +74,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img5}
           className=""
@@ -87,7 +87,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img6}
           className=""
@@ -100,7 +100,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img7}
           className=""
@@ -113,7 +113,7 @@ const ExploreProperties = () => {
             borderWidth: "4px",
             borderStyle: "solid",
           }}
-          data-aos="zoom-out"
+          data-aos="zoom-in"
           data-aos-duration="3000"
           src={img8}
           className=""

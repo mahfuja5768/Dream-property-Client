@@ -2,8 +2,8 @@
 
 const SectionTitle = ({ heading }) => {
   return (
-    <div className="flex items-center justify-center mb-12">
-      <h3 className="text-xl md:text-2xl lg:text-3xl bg-secondary w-1/4 font-bold  text-center py-3">
+    <div className="flex items-center justify-center mb-12 w-full">
+      <h3 className="text-2xl md:text-3xl lg:text-4xl bg-secondary  font-bold  text-center py-3">
         {heading}
       </h3>
       

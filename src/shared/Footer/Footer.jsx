@@ -10,27 +10,40 @@ const Footer = () => {
     <div className="bg-primary text-white border-t px-8 mt-12">
       <footer>
         <Container>
-          <div data-aos="fade-up" className=" py-12 md:py-16  grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div   className="md:grid-cols-2">
+          <div
+            // data-aos="fade-up"
+            className="  md:py-16 mb-10 grid grid-cols-1 md:grid-cols-2 justify-center items-center  lg:grid-cols-3 gap-12"
+          >
+             <div className="">
+              <header className="font-bold text-2xl  mb-2 text-[#f5a637]">About</header>
+              <p>
+                {" "}
+                Discover the perfect home with Dream-Property. As your dedicated
+                real estate partner, we combine expertise with personalized
+                service, ensuring a seamless experience. Trust us for integrity,
+                innovation, and a commitment to your goals.
+              </p>
+            </div>
+            <div className="md:grid-cols-2 flex justify-center items-center flex-col">
               <div className="flex flex-col gap-3 ">
                 <Link to="/">
                   <img src={logo} alt="" className="mb-3 w-52 h-24" />
                 </Link>
-                <h3 className="ms-5">QUESTION OR FEEDBACK?</h3>
-                <p className="flex items-center gap-2 ms-5">
+                <h3 className="text-[#f5a637]">QUESTION OR FEEDBACK?</h3>
+                <p className="flex items-center gap-2 ">
                   <FaPhone className="text-lg"></FaPhone>{" "}
                   <span>+099 222 111</span>
                 </p>
-                <p className="flex items-center gap-2 ms-5">
+                <p className="flex items-center gap-2">
                   <FaMailBulk className="text-lg"></FaMailBulk>{" "}
                   <span>@dreamProperty.com</span>
                 </p>
               </div>
             </div>
 
-            <div   className="">
+            <div className="flex justify-center lg:items-center flex-col">
               <nav className="flex flex-col gap-4 list-none">
-                <header className="font-bold text-2xl  mb-2 ">
+                <header className="text-[#f5a637] font-bold text-2xl  mb-2 ">
                   Quick Menu
                 </header>
                 <li>
@@ -85,66 +98,35 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-
-            <form  >
-              <header className="font-bold text-2xl">Newsletter</header>
-              <p className="w-3/4 my-2">
-                You can trust us. we only send promo offers, not a single spam.
-              </p>
-
-              <fieldset className="form-control  my-4  md:w-80">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="username@site.com"
-                    className="input input-bordered w-1/2 md:w-full pr-16"
-                  />
-                  <span className=" w-1/2  md:w-1/3 absolute top-0 right-0 rounded-l-none normal-case">
-                    <CustomButton buttonText={"Subscribe"}></CustomButton>
-                  </span>
-                </div>
-              </fieldset>
-            </form>
-
-            <div  className="">
-              <header className="font-bold text-2xl  mb-2 ">About</header>
-              <p>
-                {" "}
-                Discover the perfect home with Dream-Property. As your dedicated
-                real estate partner, we combine expertise with personalized
-                service, ensuring a seamless experience. Trust us for integrity,
-                innovation, and a commitment to your goals.
-              </p>
-            </div>
           </div>
-          <hr   />
-          <nav className="">
+          <hr />
+          <nav className="mx-auto flex justify-center items-center mt-5">
             <div className="flex justify-start md:items-center   md:justify-center gap-12 my-6">
               <a
                 href="https://www.facebook.com/"
                 className="hover:-translate-y-2 duration-300"
                 target="blank"
               >
-                <FaFacebookF className="text-xl "></FaFacebookF>
+                <FaFacebookF className="text-xl text-[#f5a637]"></FaFacebookF>
               </a>
               <a
                 href="https://www.dribbble.com/"
                 className="hover:-translate-y-2 duration-300"
                 target="blank"
               >
-                <FaLinkedin className="text-xl"></FaLinkedin>
+                <FaLinkedin className="text-xl text-[#f5a637]"></FaLinkedin>
               </a>
               <a
                 href="https://www.twitter.com/"
                 className="hover:-translate-y-2 duration-300"
                 target="blank"
               >
-                <FaTwitter className="text-xl"></FaTwitter>
+                <FaTwitter className="text-xl text-[#f5a637]"></FaTwitter>
               </a>
             </div>
           </nav>
         </Container>
-        <div   className=" flex  justify-center text-center items-center flex-end  py-3 px-3">
+        <div className=" flex  justify-center text-center items-center flex-end  py-3 px-3">
           <p>
             Copyright &copy; {new Date().getFullYear()} All Rights Reserved
             Here.
