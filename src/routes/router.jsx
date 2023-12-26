@@ -29,6 +29,7 @@ import { updateProperty } from "../api/auth";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import Career from "../pages/Career/Career";
+import OurGoal from "../components/OurGoal/OurGoal";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "/career",
         element: <Career></Career>,
+      },
+      {
+        path: "/ourGoal",
+        element: <OurGoal></OurGoal>,
       },
       {
         path: "/allProperties",

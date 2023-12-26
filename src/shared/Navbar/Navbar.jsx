@@ -55,6 +55,18 @@ const Navbar = () => {
           Career 
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/ourGoal"
+          className={({ isActive }) =>
+            isActive
+              ? " underline decoration-primary bg-transparent hover:text-gray-400 hover:bg-transparent decoration-2 underline-offset-8"
+              : "bg-transparent hover:text-gray-400 hover:bg-transparent"
+          }
+        >
+          Our Goal 
+        </NavLink>
+      </li>
       {/* <FaBell /> */}
     </>
   );
