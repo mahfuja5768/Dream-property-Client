@@ -43,7 +43,7 @@ const Navbar = () => {
           Dashboard 
         </NavLink>
       </li>
-      <FaBell />
+      {/* <FaBell /> */}
     </>
   );
 };
