@@ -87,7 +87,7 @@ const UserProfile = ({ flex, center }) => {
           <div className="flex gap-4">
             <Link
               to="/login"
-              className="btn bg-white border-none text-white"
+              className="btn bg-white border-none text-black"
             >
               Login
             </Link>
