@@ -15,11 +15,12 @@ import AdminMenu from "./AdminMenu";
 import Loading from "../../shared/Loading/Loading";
 import { Link } from "react-router-dom";
 import CustomButton from "../../shared/CustomButton/customButton";
+import { MdLogout } from "react-icons/md";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(true);
   const [userRole, loading] = useGetRole();
-  console.log(userRole);
+  // console.log(userRole);
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -101,7 +102,7 @@ const Sidebar = () => {
         <div>
           <hr />
           <span onClick={handleLogout} className="pt-5 w-full">
-            <CustomButton buttonText={"Logout Now"} />
+            <CustomButton buttonText={"Logout Now"}  icon={MdLogout}/> 
           </span>
         </div>
       </div>
