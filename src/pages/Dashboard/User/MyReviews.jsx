@@ -18,7 +18,7 @@ const MyReviews = () => {
       // console.log(review);
       Swal.fire({
         title: "Success!",
-        text: "Review deleted successfully !",
+        text: "Review deleted successfully!",
         icon: "success",
         confirmButtonText: "Done",
       });
@@ -51,7 +51,7 @@ const MyReviews = () => {
               borderStyle: "solid",
             }}
             key={item._id}
-            className="bg-secondary border-2 border-primary shadow-xl p-6 space-y-3"
+            className="bg-white border-2 border-primary shadow-xl p-6 space-y-3"
           >
             <h3 className="text-2xl font-bold">Property Title: {item.title}</h3>
             <h3 className="text-2xl font-medium">

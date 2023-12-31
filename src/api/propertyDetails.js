@@ -12,3 +12,9 @@ export const getOfferPropertyPrice = async (id) => {
   const { data } = await axiosSecure.get(`/offer-properties/${id}`);
   return data;
 };
+
+export const getCountProperties = async () => {
+  // console.log(user)
+  const { data } = await axiosSecure.get('/properties-count');
+  return data;
+};

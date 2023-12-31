@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaBell } from "react-icons/fa";
 
 const Navbar = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
   return (
     <>
       <li>
@@ -30,7 +30,7 @@ const Navbar = () => {
           All Properties
         </NavLink>
       </li>
-     
+
       <li>
         <NavLink
           to="/dashboard"
@@ -40,7 +40,7 @@ const Navbar = () => {
               : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
-          Dashboard 
+          Dashboard
         </NavLink>
       </li>
       <li>
@@ -52,7 +52,7 @@ const Navbar = () => {
               : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
-          Career 
+          Career
         </NavLink>
       </li>
       <li>
@@ -64,10 +64,15 @@ const Navbar = () => {
               : "bg-transparent hover:text-gray-400 hover:bg-transparent"
           }
         >
-          Our Goal 
+          Our Goal
         </NavLink>
       </li>
-      {/* <FaBell /> */}
+      <li>
+        <Link to="/dashboard/cart">
+          <FaBell className="text-primary"></FaBell>
+          {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+        </Link>
+      </li>
     </>
   );
 };
