@@ -6,6 +6,11 @@ export const getDetails = async (id) => {
   const { data } = await axiosSecure.get(`/properties/${id}`);
   return data;
 };
+export const getWishlistDetails = async (id) => {
+    // console.log(user)
+  const { data } = await axiosSecure.get(`/wishlists/${id}`);
+  return data;
+};
 
 export const getOfferPropertyPrice = async (id) => {
   // console.log(user)

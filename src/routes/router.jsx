@@ -6,7 +6,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import AllProperties from "../pages/AllProperties/AllProperties";
 import PrivateRoute from "./PrivateRoute";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
-import { getDetails, getOfferPropertyPrice } from "../api/propertyDetails";
+import { getDetails, getOfferPropertyPrice, getWishlistDetails } from "../api/propertyDetails";
 import DashboardLayout from "../layouts/DashboardLayout";
 import UserProfilePage from "../pages/Dashboard/User/UserProfilePage";
 import Wishlists from "../pages/Dashboard/User/Wishlists";
@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
       {
         path: "make-offer/:id",
         element: <MakeOffer></MakeOffer>,
-        loader: ({ params }) => getDetails(params.id),
+        loader: ({ params }) => getWishlistDetails(params.id),
       },
       {
         path: "payment/:id",

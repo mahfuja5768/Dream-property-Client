@@ -46,7 +46,7 @@ const PropertyBrought = () => {
             {" "}
             <img
               src={item.propertyImg}
-              className="h-[250px] object-cover"
+              className="h-[250px] object-cover w-full"
               alt=""
             />
             <h3 className="text-2xl font-bold">Property Title: {item.title}</h3>

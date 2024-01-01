@@ -5,7 +5,7 @@ import Container from "../../../shared/Container/Container";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Swal from "sweetalert2";
-import { postOfferProperty } from "../../../api/auth";
+import { deleteWishlist, postOfferProperty } from "../../../api/auth";
 
 const MakeOffer = () => {
   const { id } = useParams();
@@ -27,15 +27,15 @@ const MakeOffer = () => {
     email,
     description,
   } = property || {};
-    console.log(priceRange.min, priceRange.max);
+  console.log(priceRange.min, priceRange.max);
   const navigate = useNavigate();
 
-  const handleSubmit =  async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const date = form.date.value;
     const offerAmountString = form.offerAmount.value;
-    const offerAmount = parseInt(offerAmountString)
+    const offerAmount = parseInt(offerAmountString);
 
     if (offerAmount < priceRange.min) {
       return Swal.fire({
@@ -45,14 +45,14 @@ const MakeOffer = () => {
         confirmButtonText: "Done",
       });
     }
-      if (offerAmount > priceRange.max) {
-        return Swal.fire({
-          title: "Error!",
-          text: `Offer price must be less than ${priceRange.max} or equal!`,
-          icon: "error",
-          confirmButtonText: "Done",
-        });
-      }
+    if (offerAmount > priceRange.max) {
+      return Swal.fire({
+        title: "Error!",
+        text: `Offer price must be less than ${priceRange.max} or equal!`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
+    }
 
     try {
       setLoading(true);
@@ -62,14 +62,16 @@ const MakeOffer = () => {
         offerAmount,
         location,
         title,
-        propertyId:id,
+        propertyId: id,
         agentEmail: email,
         status: "pending",
         buyerEmail: user?.email,
-        buyerName: user?.displayName
+        buyerName: user?.displayName,
       };
-      console.log(offerProperty);
+      // console.log(offerProperty);
       const data = await postOfferProperty(offerProperty);
+      const wishlist = await deleteWishlist(id);
+
       Swal.fire({
         title: "Success!",
         text: "Request send successfully!",
