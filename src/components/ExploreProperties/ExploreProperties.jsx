@@ -6,6 +6,9 @@ import img5 from "../../../src/assets/images/b5.webp";
 import img6 from "../../../src/assets/images/b6.webp";
 import img7 from "../../../src/assets/images/b7.webp";
 import img8 from "../../../src/assets/images/b8.jpg";
+import img9 from "../../../src/assets/images/n3.jpeg";
+import img10 from "../../../src/assets/images/n4.jpeg";
+import img11 from "../../../src/assets/images/n5.jpeg";
 import Container from "../../shared/Container/Container";
 import SectionTitle from "../SectionTitle/SectionTitle";
 // ... add more image imports if needed
@@ -116,6 +119,45 @@ const ExploreProperties = () => {
           data-aos="zoom-in"
           data-aos-duration="3000"
           src={img8}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          src={img9}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          src={img11}
+          className=""
+          alt=""
+        />
+        <img
+          style={{
+            borderImage: "linear-gradient(to right, #0F1B4C, #e7efff)",
+            borderImageSlice: 1,
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          src={img10}
           className=""
           alt=""
         />

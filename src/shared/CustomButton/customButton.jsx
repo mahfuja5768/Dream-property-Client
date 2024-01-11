@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const CustomButton = ({ disabled, buttonText }) => {
   return (
-    <div className="w-full">
+    <div>
       {disabled ? (
         <button
           disabled

@@ -1,5 +1,5 @@
-import img2 from "../../../src/assets/images/b3.webp";
-import img3 from "../../../src/assets/images/b3.webp";
+import img2 from "../../../src/assets/images/n7.webp";
+import img3 from "../../../src/assets/images/n3.jpeg";
 import Container from "../../shared/Container/Container";
 import CustomButton from "../../shared/CustomButton/customButton";
 import { Link } from "react-router-dom";
@@ -47,7 +47,9 @@ const Featured = () => {
               perfect space begin
             </p>
             <Link to={"/allProperties"} className="mt-6">
-              <CustomButton buttonText={"Show Properties"}></CustomButton>
+              <button className="btn cursor-pointer bg-primary text-white border hover:border-4 hover:border-white  border-transparent hover:bg-transparent hover:text-white">
+                Show Properties
+              </button>
             </Link>
           </div>
         </div>
