@@ -20,7 +20,6 @@ export default function AdvertiseProperty({ property }) {
     title,
     _id,
   } = property || {};
-  console.log(property);
   return (
     <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
       <Card

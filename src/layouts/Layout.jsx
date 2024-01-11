@@ -3,8 +3,33 @@ import Container from "../shared/Container/Container";
 import Navbar from "../shared/Navbar/Navbar";
 import UserProfile from "../shared/Navbar/UserProfile";
 import logo from '../assets/images/logo.png'
+import useAuth from "../hooks/useAuth";
+import useGetBroughtProperty from "../hooks/useGetBroughtProperty";
+import Loading from "../shared/Loading/Loading";
+import { useState } from "react";
 
 const Layout = ({ children }) => {
+  const { user, loading } = useAuth();
+
+
+
+  // if (loading) {
+  //   return <Loading></Loading>;
+  // }
+
+  // const [not, setNot] = useState([])
+
+  // const [offerProperties, refetch] = useGetBroughtProperty();
+
+  //    const notification =  offerProperties.find((i) => {i.status === "accepted"
+  //   console.log(i);
+  //   setNot(i)
+  //   })
+
+  // console.log(not);
+
+
+
   return (
     <div className="drawer ">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

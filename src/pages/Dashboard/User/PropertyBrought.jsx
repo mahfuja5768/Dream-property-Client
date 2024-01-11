@@ -9,21 +9,13 @@ import axiosSecure from "../../../api";
 import { Link } from "react-router-dom";
 import CustomButton from "../../../shared/CustomButton/customButton";
 import { Helmet } from "react-helmet-async";
+import useGetBroughtProperty from "../../../hooks/useGetBroughtProperty";
 
 const PropertyBrought = () => {
-  const { user } = useAuth();
-  const [loading, setLoading] = useState(false);
 
-  const { refetch, data: offerProperties = [] } = useQuery({
-    queryKey: ["offerProperties"],
-    queryFn: async () => {
-      const res = await axiosSecure.get(
-        `/offer-properties-for-buyer/${user?.email}`
-      );
-      // console.log(res.data);
-      return res.data;
-    },
-  });
+ const [offerProperties] = useGetBroughtProperty();
+
+ 
 
   return (
     <Container>

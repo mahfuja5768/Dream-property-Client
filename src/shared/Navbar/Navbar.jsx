@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaBell } from "react-icons/fa";
+import useGetBroughtProperty from "../../hooks/useGetBroughtProperty";
+import Loading from "../Loading/Loading";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  
   return (
     <>
       <li>
@@ -70,7 +72,7 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard/cart">
           <FaBell className="text-primary"></FaBell>
-          {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+          {/* <div className="badge badge-secondary">+{notification.length}</div> */}
         </Link>
       </li>
     </>

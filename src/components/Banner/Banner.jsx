@@ -1,14 +1,13 @@
 import { FaArrowCircleRight } from "react-icons/fa";
 import CustomButton from "../../shared/CustomButton/customButton";
+import banner from '../../../src/assets/images/n2.jpeg'
 import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div>
       <div
         className="hero min-h-screen"
-        style={{
-          backgroundImage: "url(../../../src/assets/images/n2.jpeg)",
-        }}
+        style={{ backgroundImage: `url(${banner})` }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
