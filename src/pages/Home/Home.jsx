@@ -6,6 +6,7 @@ import Featured from "../../components/Featured/Featured";
 import ExploreProperties from "../../components/ExploreProperties/ExploreProperties";
 import Customer from "../../components/Customer/Customer";
 import Map from "../../components/GoogleMap/Map";
+import Meeting from "../../components/Meeting/Meeting";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <LatestReviews></LatestReviews>
       <ExploreProperties></ExploreProperties>
       <Customer></Customer>
+      <Meeting/>
       <Map></Map>
     </div>
   );
