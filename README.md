@@ -4,7 +4,7 @@
 ### Server side code link- https://github.com/mahfuja5768/Dream-property-server
 
 ### Technologies:
-- This project is made by React, Nodejs, Exressjs, Tailwind, Material Ui. Here for authentication I used firebase, jwt.
+- This project is made by React, Nodejs, Express.js, Tailwind, Material Ui. Here for authentication I used firebase, jwt.
 
 ### Website features:
 
